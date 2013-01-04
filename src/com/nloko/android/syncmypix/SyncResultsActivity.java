@@ -42,7 +42,6 @@ import com.nloko.android.syncmypix.contactutils.ContactUtils;
 import com.nloko.android.syncmypix.graphics.CropImage;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
@@ -62,20 +61,16 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.provider.Contacts.People;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.View.OnClickListener;
 import android.view.View.OnCreateContextMenuListener;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -101,25 +96,12 @@ public class SyncResultsActivity extends Activity {
 	private PhotoCache mSdCache;
 
 	private ProgressBar mProgress;
-	private ImageButton mDeleteButton;
-	private ImageButton mHelpButton;
-	private ImageButton mHomeButton;
 	
 	private Uri mUriOfSelected = null;
-	
-	private final int MENU_FILTER = 1;
-	private final int MENU_FILTER_ALL = 2;
-	private final int MENU_FILTER_NOTFOUND = 3;
-	private final int MENU_FILTER_UPDATED = 4;
-	private final int MENU_FILTER_SKIPPED = 5;
-	private final int MENU_FILTER_ERROR = 6;
 
 	// dialogs
 	private final int ZOOM_PIC = 1;
 	private final int UPDATE_CONTACT = 3;
-	private final int HELP_DIALOG = 4;
-	private final int DELETE_DIALOG = 5;
-	private final int DELETING = 6;
 	
 	private static final String TAG = "SyncResults";
 	
@@ -258,31 +240,6 @@ public class SyncResultsActivity extends Activity {
 				}
 			}
         });
-
-		/*mHomeButton = (ImageButton) findViewById(R.id.home);
-		mHomeButton.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				Intent i = new Intent(getApplicationContext(), MainActivity.class);
-				i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-				startActivity(i);
-				finish();
-			}
-		});*/
-		
-		/*mHelpButton = (ImageButton) findViewById(R.id.help);
-		mHelpButton.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.help_link)));
-				startActivity(i);
-			}
-		});*/
-		
-		/*mDeleteButton = (ImageButton) findViewById(R.id.delete);
-		mDeleteButton.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				showDialog(DELETE_DIALOG);
-			}
-		});*/
 
         mMainHandler = new MainHandler(this);
 	}
@@ -812,48 +769,6 @@ public class SyncResultsActivity extends Activity {
 				sync.setMessage(getString(R.string.syncresults_syncDialog));
 				sync.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 				return sync;
-			case DELETE_DIALOG:
-				AlertDialog.Builder deleteBuilder = new AlertDialog.Builder(this);
-				deleteBuilder.setTitle(R.string.syncresults_deleteDialog)
-					   .setIcon(android.R.drawable.ic_dialog_alert)
-					   .setMessage(R.string.syncresults_deleteDialog_msg)
-				       .setCancelable(false)
-				       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-				           public void onClick(DialogInterface dialog, int id) {
-				               removeDialog(DELETE_DIALOG);
-				               
-				               showDialog(DELETING);
-				               mDbHelper.deleteAllPictures(new DbHelperNotifier() {
-				            	   public void onUpdateComplete() {
-				            		   runOnUiThread(new Runnable() {
-				            			   public void run() {
-				            				   dismissDialog(DELETING);
-				            				   Toast.makeText(getApplicationContext(),
-													R.string.syncresults_deleted, 
-													Toast.LENGTH_LONG).show();
-											
-				            				   finish();
-				            			   }
-				            		   });
-				            	   }
-				               });
-				           }
-				       })
-				       .setNegativeButton("No", new DialogInterface.OnClickListener() {
-				    	   public void onClick(DialogInterface dialog, int id) {
-				    		   removeDialog(DELETE_DIALOG);
-				    	   }
-				       });
-				
-				AlertDialog delete = deleteBuilder.create();
-				return delete;
-			
-			case DELETING:
-				ProgressDialog deleting = new ProgressDialog(this);
-				deleting.setCancelable(false);
-				deleting.setMessage(getString(R.string.syncresults_deletingDialog));
-				deleting.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-				return deleting;
 			
 		}
 		
@@ -1101,7 +1016,7 @@ public class SyncResultsActivity extends Activity {
 //					activity.runOnUiThread(new Runnable() {
 //
 //						public void run() {
-//							// TODO Auto-generated method stub
+//							// Auto-generated method stub
 //							((SimpleCursorAdapter)activity.mListview.getAdapter()).notifyDataSetChanged();
 //						}
 //						
@@ -1148,7 +1063,7 @@ public class SyncResultsActivity extends Activity {
 			}
 		}
 		
-		private void init()
+		/*private void init()
 		{
 			Message msg = obtainMessage();
 			msg.what = LOAD_ALL;
@@ -1158,7 +1073,7 @@ public class SyncResultsActivity extends Activity {
 		public boolean isLoading() 
 		{
 			return mLoading;
-		}
+		}*/
 		
 		private void loadAll()
 		{
