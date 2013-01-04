@@ -60,14 +60,6 @@
         android:layout_height="wrap_content"
         android:background="#999999"
         >
-    		
-    		<Button android:id="@+id/ok"
-               android:layout_marginTop="6dip"
-               android:layout_weight="0.5"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="OK"
-               />
      </LinearLayout>
 
 </LinearLayout>

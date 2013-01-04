@@ -71,7 +71,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 public class MainActivity extends Activity {
 
 	private final static String TAG = "MainActivity";
-	private final static String DEV_EMAIL = "neil.loknath+syncmypix@gmail.com";
+	private final static String DEV_EMAIL = "syncmypix@andrew67.com";
 	private final static int SOCIAL_NETWORK_LOGIN = 0;
 
 	private final int MENU_LOGOUT = 3;
@@ -130,22 +130,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         sMainActivity = this;
         
-        //ps = new PhotoStore(Environment.getExternalStorageDirectory());
-        
-        /*if (!getSharedPreferences(SettingsActivity.PREFS_NAME, 0).getBoolean("do_not_show_about", false)) {
-        	showDialog(ABOUT_DIALOG);
-        }*/
-        
         final MainActivity self = this;
         ImageButton sync = (ImageButton) findViewById(R.id.syncButton);
         sync.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				/*if (isLoggedInFromSyncSource(getApplicationContext(), getSyncSource(getApplicationContext()))) {
-					
-					//showDialog(CONFIRM_DIALOG);
-				} else {
-					login();*/
-					//SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 					String key = getResources().getString(R.string.facebook_api_key);
 					fbClient = new Facebook(key);
 					if(!loggedIn || fbClient.getAccessToken() == null)
@@ -189,17 +177,16 @@ public class MainActivity extends Activity {
 					}
 					else
 						sync();
-				//}
 			}
         });
         
-        ImageButton settings = (ImageButton) findViewById(R.id.settingsButton);
+        /*ImageButton settings = (ImageButton) findViewById(R.id.settingsButton);
         settings.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
 				startActivity(i);
 			}
-        });
+        });*/
         
         ImageButton results = (ImageButton) findViewById(R.id.resultsButton);
         results.setOnClickListener(new OnClickListener() {
@@ -215,15 +202,15 @@ public class MainActivity extends Activity {
 			}
         });
         
-        mHelpButton = (ImageButton) findViewById(R.id.help);
+        /*mHelpButton = (ImageButton) findViewById(R.id.help);
 		mHelpButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.help_link)));
 				startActivity(i);
 			}
-		});
+		});*/
 		
-		mDeleteButton = (ImageButton) findViewById(R.id.delete);
+		/*mDeleteButton = (ImageButton) findViewById(R.id.delete);
 		mDeleteButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				showDialog(DELETE_DIALOG);
@@ -242,7 +229,7 @@ public class MainActivity extends Activity {
 						e.printStackTrace();
 					}
 			}
-		});
+		});*/
 
     }
     
@@ -481,13 +468,6 @@ public class MainActivity extends Activity {
 			
 			layout.addView(versionView, 1);
 		}
-		
-		Button ok = (Button)about.findViewById(R.id.ok);
-		ok.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				removeDialog(ABOUT_DIALOG);
-			}
-		});
 				
 		return about;
 	}

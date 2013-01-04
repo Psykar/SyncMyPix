@@ -20,10 +20,9 @@
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application 
-    	android:theme="@android:style/Theme.Light"
+        android:theme="@style/AppTheme"
     	android:icon="@drawable/icon" 
-    	android:label="@string/app_name"
-    	android:debuggable="false">
+    	android:label="@string/app_name">
     	
     	<receiver android:name=".SyncMyPixBroadcastReceiver">
     		<intent-filter>
@@ -43,7 +42,7 @@
         --></receiver>
         
         <activity android:name=".MainActivity"
-        		  android:theme="@android:style/Theme.Light.NoTitleBar"
+        		  android:theme="@style/AppTheme"
                   android:launchMode="singleTask" 
                   android:screenOrientation="portrait">
                   
@@ -57,7 +56,7 @@
                   android:configChanges="keyboardHidden|orientation">
         </activity>
          <activity android:name=".SyncProgressActivity"
-         		   android:theme="@android:style/Theme.Light.NoTitleBar"
+         		   android:theme="@style/AppTheme"
                    android:label="@string/syncprogress">
         </activity>
         <activity-alias android:enabled="true"
@@ -74,7 +73,7 @@
                   android:label="Crop Picture">
         </activity>
         <activity android:name=".SyncResultsActivity"
-        		  android:theme="@android:style/Theme.Light.NoTitleBar"
+        		  android:theme="@style/AppTheme"
                   android:label="@string/syncresults" 
                   android:screenOrientation="portrait">
         </activity>
