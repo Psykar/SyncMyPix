@@ -180,13 +180,13 @@ public class MainActivity extends Activity {
 			}
         });
         
-        /*ImageButton settings = (ImageButton) findViewById(R.id.settingsButton);
+        ImageButton settings = (ImageButton) findViewById(R.id.settingsButton);
         settings.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
 				startActivity(i);
 			}
-        });*/
+        });
         
         ImageButton results = (ImageButton) findViewById(R.id.resultsButton);
         results.setOnClickListener(new OnClickListener() {
