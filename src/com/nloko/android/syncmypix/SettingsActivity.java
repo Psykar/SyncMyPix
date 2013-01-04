@@ -28,15 +28,12 @@ import com.nloko.android.syncmypix.R;
 
 import android.app.AlarmManager;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.Preference.OnPreferenceClickListener;
 
 public class SettingsActivity extends PreferenceActivity {
 	
@@ -46,7 +43,6 @@ public class SettingsActivity extends PreferenceActivity {
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	//requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         super.onCreate(savedInstanceState);
         setupViews(savedInstanceState);
     }
@@ -65,70 +61,9 @@ public class SettingsActivity extends PreferenceActivity {
 	
     private void setupViews(Bundle savedInstanceState)
     {
-    	//getWindow().setBackgroundDrawableResource(R.drawable.background);
-    	//getListView().setBackgroundColor(Color.TRANSPARENT);
-    	//getListView().setCacheColorHint(Color.TRANSPARENT);
-
     	addPreferencesFromResource(R.layout.preferences);	
-    	//getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.syncmypix_title);
-
-/*    	final CheckBoxPreference intelliMatch = (CheckBoxPreference) findPreference("intelliMatch");
-    	final CheckBoxPreference firstNames = (CheckBoxPreference) findPreference("firstNames");
-    	if (intelliMatch.isChecked()) {
-    		firstNames.setEnabled(true);
-    	}
     	
-    	intelliMatch.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-
-			public boolean onPreferenceChange(Preference preference,
-					Object newValue) {
-				firstNames.setEnabled((Boolean)newValue);
-				return true;
-			}
-    		
-    	});*/
-    	
-    	/*
-    	final CheckBoxPreference skip = (CheckBoxPreference) findPreference("skipIfExists");
-    	final CheckBoxPreference sync = (CheckBoxPreference) findPreference("allowGoogleSync");
-    	
-    	if (Utils.determineOsVersion() >= 5) {
-   			//skip.setChecked(false);
-   			//skip.setEnabled(false);
-   			sync.setChecked(true);
-   			sync.setEnabled(false);
-    	} else {
-    		// only allow one of either of these options to be selected
-    		sync.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-				public boolean onPreferenceClick(Preference preference) {
-					boolean checked = sync.isChecked();
-					if (checked) {
-						skip.setChecked(!checked);
-					}
-					return false;
-				}
-    		});
-    		
-    		skip.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-				public boolean onPreferenceClick(Preference preference) {
-					boolean checked = skip.isChecked();
-					if (checked) {
-						sync.setChecked(!checked);
-					}
-					return false;
-				}
-    		});
-    	}
-    	*/
-    	int freq = getSharedPreferences(SettingsActivity.PREFS_NAME, 0).getInt("sched_freq", 0);
     	ListPreference schedule = (ListPreference) findPreference("sched_freq");
-    	
-    	// set value from old version
-    	// TODO remove this after awhile
-    	if (freq != Integer.parseInt(schedule.getValue())) {
-    		schedule.setValueIndex(freq);
-    	}
-    	
         schedule.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 			public boolean onPreferenceChange(Preference preference,
 					Object newValue) {
@@ -164,10 +99,8 @@ public class SettingsActivity extends PreferenceActivity {
     {
     	long interval;
     	switch (pos) {
-    	
     		case 1:
 				interval = AlarmManager.INTERVAL_DAY;
-    			//interval = 60000 * 5;
 				break;
 			case 2:
 				interval = AlarmManager.INTERVAL_DAY * 7;

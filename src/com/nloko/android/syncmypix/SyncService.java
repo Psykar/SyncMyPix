@@ -206,10 +206,10 @@ public abstract class SyncService extends Service {
     	final private WeakReference<SyncService> mService;
     	final private boolean finish;
     	
-    	public UpdateResultsTable(SyncService service, List<ContentValues> list)
+    	/*public UpdateResultsTable(SyncService service, List<ContentValues> list)
     	{
     		this (service, list, true);
-    	}
+    	}*/
     	
     	public UpdateResultsTable(SyncService service, List<ContentValues> list, boolean finish)
     	{

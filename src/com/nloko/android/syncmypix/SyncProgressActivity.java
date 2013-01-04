@@ -25,7 +25,6 @@ package com.nloko.android.syncmypix;
 import java.lang.ref.WeakReference;
 
 import com.nloko.android.Log;
-import com.nloko.android.syncmypix.SyncService.SyncServiceStatus;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -39,10 +38,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ProgressBar;
 import android.widget.TextSwitcher;
@@ -79,17 +76,6 @@ public class SyncProgressActivity extends Activity {
 		mStatusSwitcher = (TextSwitcher) findViewById(R.id.syncStatusSwitcher);
 		mStatus = (TextView) findViewById(R.id.status);
 		
-		/*mHomeButton = (ImageButton) findViewById(R.id.home);
-		mHomeButton.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				Intent i = new Intent(getApplicationContext(), MainActivity.class);
-				i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-				startActivity(i);
-				finish();
-			}
-		});*/
-		
-		//mCancelButton = (ImageButton) findViewById(R.id.syncCancel);
 		mCancelButton = (Button) findViewById(R.id.syncCancel);
 		mCancelButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -175,7 +161,6 @@ public class SyncProgressActivity extends Activity {
         		return;
         	} else {
         		mCancelButton.setVisibility(View.VISIBLE);
-				//mHomeButton.setVisibility(View.VISIBLE);
         	}
         	
         	s.setListener(new SyncServiceListener() {
@@ -184,7 +169,6 @@ public class SyncProgressActivity extends Activity {
 					mTitleProgress.setVisibility(View.INVISIBLE);
 					mProgress.setVisibility(View.VISIBLE);
 					mCancelButton.setVisibility(View.VISIBLE);
-					//mHomeButton.setVisibility(View.VISIBLE);
 					
 					if (mProgress != null) {
 						if (percentage < 100) {

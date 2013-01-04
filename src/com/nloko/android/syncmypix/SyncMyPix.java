@@ -22,7 +22,6 @@
 
 package com.nloko.android.syncmypix;
 
-import android.content.Context;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
