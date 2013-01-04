@@ -18,7 +18,7 @@
     <TextView android:id="@+id/copyright"
                android:layout_width="fill_parent"
                android:layout_height="wrap_content"
-               android:text="Copyright (C) 2009 Neil Loknath"
+               android:text="Copyright (C) 2009 Neil Loknath, (C) 2013 Andrés Cordero"
                android:textSize="10dip"
                android:layout_marginLeft="4dip"
                />
@@ -39,52 +39,27 @@
                android:layout_width="fill_parent"
                android:layout_height="wrap_content"
                android:gravity="center_horizontal"
-               android:text="https://github.com/nloko/SyncMyPix"
+               android:text="https://github.com/Andrew67/SyncMyPix"
      		   android:autoLink="web"
                android:textSize="12dip"
-               />          
-    <TextView android:id="@+id/website"
-    		   android:layout_marginTop="8dip"
-               android:layout_width="fill_parent"
-               android:layout_height="wrap_content"
-               android:gravity="center_horizontal"
-               android:text="@string/website"
-               android:autoLink="web"
-               android:textSize="12dip"
-               />
-    
-        <TextView android:id="@+id/privacy"
-    		   android:layout_marginTop="8dip"
-               android:layout_width="fill_parent"
-               android:layout_height="wrap_content"
-               android:gravity="center_horizontal"
-               android:text="@string/privacy_link"
-               android:autoLink="web"
-               android:textSize="10dip"
                />
 
-	 <CheckBox android:id="@+id/do_not_show_about"
-	 		   
-	 		   android:layout_width="fill_parent"
-	 		   android:layout_height="wrap_content"
-	 		   android:layout_marginTop="4dip"
-	 		   android:textSize="10dip"
-	 		   android:text="Do not show until next upgrade"
-	 		   />
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dip"
+        android:autoLink="web"
+        android:gravity="center_horizontal"
+        android:text="https://github.com/nloko/SyncMyPix"
+        android:textSize="12dip" />
 	 		
 	 <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#999999"
-        >                         
-    		<Button android:id="@+id/donate"
-    		   android:layout_weight="0.5"
-               android:layout_marginTop="6dip"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Donate"
-               />
+        >
     		
     		<Button android:id="@+id/ok"
                android:layout_marginTop="6dip"

@@ -132,9 +132,9 @@ public class MainActivity extends Activity {
         
         //ps = new PhotoStore(Environment.getExternalStorageDirectory());
         
-        if (!getSharedPreferences(SettingsActivity.PREFS_NAME, 0).getBoolean("do_not_show_about", false)) {
+        /*if (!getSharedPreferences(SettingsActivity.PREFS_NAME, 0).getBoolean("do_not_show_about", false)) {
         	showDialog(ABOUT_DIALOG);
-        }
+        }*/
         
         final MainActivity self = this;
         ImageButton sync = (ImageButton) findViewById(R.id.syncButton);
@@ -463,7 +463,7 @@ public class MainActivity extends Activity {
 		String version = null;
 		try {
 			pi = pm.getPackageInfo(getPackageName(), 0);
-			 version = pi.versionName;
+			 version = pi.versionName + "AL";
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
 		} 
@@ -488,26 +488,7 @@ public class MainActivity extends Activity {
 				removeDialog(ABOUT_DIALOG);
 			}
 		});
-		
-		final MainActivity self = this;
-        Button donate = (Button) about.findViewById(R.id.donate);
-        donate.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				removeDialog(ABOUT_DIALOG);
-				Intent i = new Intent(getApplicationContext(), DonateActivity.class);
-				startActivity(i);
-			}
-        });
-        
-		CheckBox show = (CheckBox)about.findViewById(R.id.do_not_show_about);
-		show.setChecked(getSharedPreferences(SettingsActivity.PREFS_NAME, 0).getBoolean("do_not_show_about", false));
-		show.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				Utils.setBoolean(getSharedPreferences(SettingsActivity.PREFS_NAME, 0), "do_not_show_about", isChecked);
-			}
-		});
-		
+				
 		return about;
 	}
 	

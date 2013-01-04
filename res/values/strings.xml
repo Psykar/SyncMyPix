@@ -103,5 +103,5 @@
     <string name="privacy">Privacy Policy</string>
     <string name="privacy_link">http://code.google.com/p/syncmypix/wiki/PrivacyPolicy</string>
 	<string name="results_help_msg"><b>Select</b> a friend to view their profile picture, or <b>long press</b> for more options</string>
-	<string name="about_info">SyncMyPix is a free, open-source Android application. For more information, including contributors, bug tracking, FAQ, and help, click the following link:</string>
+	<string name="about_info">SyncMyPix AL is a free, open-source Android application based on the original and retired SyncMyPix. For more information, including contributors, bug tracking, FAQ, and help, click the following links:</string>
 </resources>
