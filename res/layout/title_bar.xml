@@ -2,7 +2,7 @@
               android:id="@+id/title_bar"
               android:orientation="vertical"
               android:layout_width="fill_parent"
-              android:layout_height="54dip"
+              android:layout_height="0dip"
 			  android:background="#5fd35f"
               >
           <ImageView android:id="@+id/icon"
