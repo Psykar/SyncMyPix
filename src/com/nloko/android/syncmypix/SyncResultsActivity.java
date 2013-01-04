@@ -258,7 +258,7 @@ public class SyncResultsActivity extends Activity {
 			}
         });
 
-		mHomeButton = (ImageButton) findViewById(R.id.home);
+		/*mHomeButton = (ImageButton) findViewById(R.id.home);
 		mHomeButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent i = new Intent(getApplicationContext(), MainActivity.class);
@@ -266,22 +266,22 @@ public class SyncResultsActivity extends Activity {
 				startActivity(i);
 				finish();
 			}
-		});
+		});*/
 		
-		mHelpButton = (ImageButton) findViewById(R.id.help);
+		/*mHelpButton = (ImageButton) findViewById(R.id.help);
 		mHelpButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.help_link)));
 				startActivity(i);
 			}
-		});
+		});*/
 		
-		mDeleteButton = (ImageButton) findViewById(R.id.delete);
+		/*mDeleteButton = (ImageButton) findViewById(R.id.delete);
 		mDeleteButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				showDialog(DELETE_DIALOG);
 			}
-		});
+		});*/
 
         mMainHandler = new MainHandler(this);
 	}

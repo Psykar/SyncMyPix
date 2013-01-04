@@ -70,61 +70,11 @@
 		android:layout_marginLeft="4dip"
 		android:textColor="#FFFFFF" />
 	
-	<ListView android:id="@+id/resultList" 
-		android:layout_width="fill_parent" 
-		android:layout_height="match_parent"
-		android:layout_below="@id/notfound"
-		android:layout_above="@id/footer"
-	 />
-	
-	<RelativeLayout android:id="@+id/footer" 
-		android:layout_width="fill_parent" 
-		android:layout_height="42dip" 
-		android:background="#afe9af" 
-		android:layout_alignParentBottom="true" > 
-		
-		<ImageButton  
-			android:id="@+id/delete" 
-			android:visibility="visible"
-			android:layout_width="wrap_content"
-			android:layout_height="fill_parent" 
-			android:adjustViewBounds="true"
-			android:layout_alignParentRight="true"
-			android:textColor="#FFFFFF"
-			android:src="@drawable/delete_button_selector"
-			android:scaleType="fitXY"
-			android:background="#FFFFFF"
-			android:paddingLeft="1dip"
-			 />
-			 
-		<ImageButton  
-			android:id="@+id/help" 
-			android:visibility="visible"
-			android:layout_width="wrap_content"
-			android:layout_height="fill_parent" 
-			android:adjustViewBounds="true"
-			android:layout_toLeftOf="@id/delete"
-			android:textColor="#FFFFFF"
-			android:src="@drawable/help_button_selector"
-			android:scaleType="fitXY"
-			android:background="#FFFFFF"
-			android:paddingLeft="1dip"
-			 />
-			 
-		<ImageButton  
-			android:id="@+id/home" 
-			android:visibility="visible"
-			android:layout_width="wrap_content"
-			android:layout_height="fill_parent" 
-			android:adjustViewBounds="true"
-			android:layout_toLeftOf="@id/help"
-			android:textColor="#FFFFFF"
-			android:src="@drawable/home_button_selector"
-			android:scaleType="fitXY"
-			android:background="#FFFFFF"
-			android:paddingLeft="1dip"
-			 />
-		
-		</RelativeLayout>/>
+	<ListView
+	    android:id="@+id/resultList"
+	    android:layout_width="fill_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@id/notfound" />
+/>
 	
 </RelativeLayout>
