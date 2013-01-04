@@ -51,31 +51,24 @@ import android.content.ServiceConnection;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 
 public class MainActivity extends Activity {
 
 	private final static String TAG = "MainActivity";
 	private final static String DEV_EMAIL = "syncmypix@andrew67.com";
 	private final static int SOCIAL_NETWORK_LOGIN = 0;
-
-	private final int MENU_LOGOUT = 3;
-    private final int MENU_LOG = 5;
 
     private final int DELETE_DIALOG = 1;
 	private final int ABOUT_DIALOG = 2;
@@ -84,9 +77,6 @@ public class MainActivity extends Activity {
 
 	private WeakReference<SyncService> mSyncService;
 	private boolean mSyncServiceBound = false;
-	
-	private ImageButton mDeleteButton;
-	private ImageButton mHelpButton;
 	
 	PhotoStore ps = null;
 	public byte[] cropPhoto = null;
@@ -201,14 +191,6 @@ public class MainActivity extends Activity {
 				showDialog(ABOUT_DIALOG);
 			}
         });
-        
-        /*mHelpButton = (ImageButton) findViewById(R.id.help);
-		mHelpButton.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.help_link)));
-				startActivity(i);
-			}
-		});*/
 		
 		/*mDeleteButton = (ImageButton) findViewById(R.id.delete);
 		mDeleteButton.setOnClickListener(new OnClickListener() {
@@ -256,15 +238,12 @@ public class MainActivity extends Activity {
     	Utils.setString(getSharedPreferences(SettingsActivity.PREFS_NAME, 0), "uid", null);
     }  
     
-    private void sendLog()
+    @SuppressWarnings("unused")
+	private void sendLog()
     {
     	final LogCollector collector = new LogCollector();
     	collector.setNotifier(new LogCollectorNotifier() {
 			public void onComplete() {
-				if (collector == null) {
-					return;
-				}
-				
 				collector.appendMessage(getString(R.string.main_logMsg));
 				String log = collector.getLog();
 				if (log != null) {
@@ -349,28 +328,24 @@ public class MainActivity extends Activity {
     
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-    	MenuItem item;
-    	
-    	item = menu.add(0, MENU_LOGOUT, 0, R.string.main_logoutButton);
-    	item.setIcon(android.R.drawable.ic_menu_close_clear_cancel);
-    	
-    	/*
-    	item = menu.add(0, MENU_LOG, 0, R.string.main_sendLogButton);
-    	item.setIcon(android.R.drawable.ic_menu_send);
-    	*/
-    	
-    	return true;
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main_menu, menu);
+		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-			case MENU_LOGOUT:
+			case R.id.logoutButton:
+				// TODO Working logout button
 				logout();
 				return true;
-			case MENU_LOG:
-				sendLog();
+			case R.id.deleteAllButton:
+				showDialog(DELETE_DIALOG);
 				return true;
+			/*case R.id.sendLogButton:
+				sendLog();
+				return true;*/
 	    }
 		
 	    return false;
