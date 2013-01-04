@@ -26,7 +26,7 @@
 		android:layout_toRightOf="@id/updatedLabel"
 		android:layout_below="@id/titleBar"
 		android:layout_marginLeft="4dip" 
-		android:textColor="#000000" />
+		android:textColor="#FFFFFF" />
 
 	<TextView android:text="@string/syncresults.skipped" 
 		android:id="@+id/skippedLabel"
@@ -47,7 +47,7 @@
 		android:layout_toRightOf="@id/skippedLabel"
 		android:layout_below="@id/updatedLabel" 
 		android:layout_marginLeft="4dip"
-		android:textColor="#000000" />
+		android:textColor="#FFFFFF" />
 		
 		<TextView android:text="@string/syncresults.notfound" 
 		android:id="@+id/notfoundLabel"
@@ -68,7 +68,7 @@
 		android:layout_toRightOf="@id/notfoundLabel"
 		android:layout_below="@id/skippedLabel"  
 		android:layout_marginLeft="4dip"
-		android:textColor="#000000" />
+		android:textColor="#FFFFFF" />
 	
 	<ListView android:id="@+id/resultList" 
 		android:layout_width="fill_parent" 
