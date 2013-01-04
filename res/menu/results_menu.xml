@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/menu_filter"
+          android:title="@string/syncresults.filterButton"
+          android:icon="@android:drawable/ic_menu_search"
+          android:showAsAction="ifRoom" >
+        <!-- "filter" submenu -->
+        <menu>
+            <item android:id="@+id/filter_all"
+                  android:title="@string/syncresults.filterMenu.all" />
+            <item android:id="@+id/filter_error"
+                  android:title="@string/syncresults.filterMenu.errors" />
+            <item android:id="@+id/filter_notfound"
+                  android:title="@string/syncresults.filterMenu.notfound" />
+            <item android:id="@+id/filter_skipped"
+                  android:title="@string/syncresults.filterMenu.skipped" />
+            <item android:id="@+id/filter_updated"
+                  android:title="@string/syncresults.filterMenu.updated" />
+        </menu>
+    </item>
+</menu>

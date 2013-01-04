@@ -65,6 +65,7 @@ import android.os.Message;
 import android.provider.Contacts.People;
 import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
@@ -405,17 +406,9 @@ public class SyncResultsActivity extends Activity {
 		
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		 MenuItem item;
-
-		 SubMenu options = menu.addSubMenu(0, MENU_FILTER, 0, R.string.syncresults_filterButton);
-		 options.add(0, MENU_FILTER_ALL, 0, R.string.syncresults_filterMenu_all);
-		 options.add(0, MENU_FILTER_ERROR, 0, R.string.syncresults_filterMenu_errors);
-		 options.add(0, MENU_FILTER_NOTFOUND, 0, R.string.syncresults_filterMenu_notfound);
-		 options.add(0, MENU_FILTER_SKIPPED, 0, R.string.syncresults_filterMenu_skipped);
-		 options.add(0, MENU_FILTER_UPDATED, 0, R.string.syncresults_filterMenu_updated);
-		 
-		 options.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
-		 return true;
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.results_menu, menu);
+		return true;
 	 }
 	 
 	 @Override
@@ -424,21 +417,21 @@ public class SyncResultsActivity extends Activity {
 		 SimpleCursorAdapter adapter = (SimpleCursorAdapter)mListview.getAdapter();
 		 
 		 switch (item.getItemId()) {
-		 case MENU_FILTER_ALL:
+		 case R.id.filter_all:
 			 adapter.getFilter().filter(null);
 			 return true;
-		 case MENU_FILTER_ERROR:
+		 case R.id.filter_error:
 			 adapter.getFilter().filter("'" + getString(R.string.resultsdescription_error) + "'," +
 					 "'" + getString(R.string.resultsdescription_downloadfailed) + "'");
 			 return true;
-		 case MENU_FILTER_NOTFOUND:
+		 case R.id.filter_notfound:
 			 adapter.getFilter().filter("'" + getString(R.string.resultsdescription_notfound) + "'");
 			 return true;
-		 case MENU_FILTER_UPDATED:
+		 case R.id.filter_updated:
 			 adapter.getFilter().filter("'" + getString(R.string.resultsdescription_updated) + "'," +
 					 "'" + getString(R.string.resultsdescription_multipleprocessed) + "'");
 			 return true;
-		 case MENU_FILTER_SKIPPED:
+		 case R.id.filter_skipped:
 			 adapter.getFilter().filter("'" + getString(R.string.resultsdescription_skippedexists) + "'," +
 					 "'" + getString(R.string.resultsdescription_skippedunchanged) + "'," +
 					 "'" + getString(R.string.resultsdescription_skippedmultiplefound) + "'");

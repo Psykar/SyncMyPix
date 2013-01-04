@@ -43,6 +43,16 @@
      		   android:autoLink="web"
                android:textSize="12dip"
                />
+    
+    <TextView android:id="@+id/privacy_policy"
+    		   android:layout_marginTop="8dip"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:gravity="center_horizontal"
+               android:text="https://github.com/Andrew67/SyncMyPix/wiki/Privacy-Policy"
+     		   android:autoLink="web"
+               android:textSize="12dip"
+               />
 
     <TextView
         android:id="@+id/TextView01"
