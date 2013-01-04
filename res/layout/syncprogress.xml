@@ -101,10 +101,9 @@
     	
     <RelativeLayout android:id="@+id/footer" 
 		android:layout_width="fill_parent" 
-		android:layout_height="42dip" 
-		android:background="#afe9af" >
+		android:layout_height="42dip" >
 			 
-		<ImageButton  
+		<!-- <ImageButton  
 			android:id="@+id/syncCancel" 
 			android:visibility="invisible"
 			android:layout_width="wrap_content"
@@ -130,6 +129,16 @@
 			android:scaleType="fitXY"
 			android:background="#FFFFFF"
 			android:paddingLeft="1dip"
-			 />
+			 /> -->
+
+        <Button
+            android:id="@+id/syncCancel"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Cancel" />
+
 	</RelativeLayout>
 </LinearLayout>
