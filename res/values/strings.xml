@@ -64,6 +64,11 @@
     <string name="syncresults.manuallinkerror">Unable to manually link. Please try switching between 3G / WiFi</string>
     <string name="syncresults.contactunlinkableerror">This contact is read-only and can not be linked</string>
     <string name="syncresults.filterButton">Filter Results</string>
+    <string name="syncresults.filterMenu.all">All</string>
+    <string name="syncresults.filterMenu.errors">Errors</string>
+    <string name="syncresults.filterMenu.notfound">Not Found</string>
+    <string name="syncresults.filterMenu.skipped">Skipped</string>
+    <string name="syncresults.filterMenu.updated">Updated</string>
     <string name="syncresults.deleteButton">Delete</string>
     <string name="syncresults.loadingDialog">Loading...</string>
     <string name="syncresults.syncDialog">Syncing contact...</string>

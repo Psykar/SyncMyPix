@@ -408,11 +408,11 @@ public class SyncResultsActivity extends Activity {
 		 MenuItem item;
 
 		 SubMenu options = menu.addSubMenu(0, MENU_FILTER, 0, R.string.syncresults_filterButton);
-		 options.add(0, MENU_FILTER_ALL, 0, "All");
-		 options.add(0, MENU_FILTER_ERROR, 0, "Errors");
-		 options.add(0, MENU_FILTER_NOTFOUND, 0, "Not found");
-		 options.add(0, MENU_FILTER_SKIPPED, 0, "Skipped");
-		 options.add(0, MENU_FILTER_UPDATED, 0, "Updated");
+		 options.add(0, MENU_FILTER_ALL, 0, R.string.syncresults_filterMenu_all);
+		 options.add(0, MENU_FILTER_ERROR, 0, R.string.syncresults_filterMenu_errors);
+		 options.add(0, MENU_FILTER_NOTFOUND, 0, R.string.syncresults_filterMenu_notfound);
+		 options.add(0, MENU_FILTER_SKIPPED, 0, R.string.syncresults_filterMenu_skipped);
+		 options.add(0, MENU_FILTER_UPDATED, 0, R.string.syncresults_filterMenu_updated);
 		 
 		 options.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
 		 return true;
