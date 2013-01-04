@@ -49,5 +49,5 @@ Contributors
 Neil Loknath <neil.loknath@gmail.com>  
 Mike Hearn <mike@plan99.net>  
 Diomidis Spinellis <dds@aueb.gr>  
-Deadknight <olligan@gmail.com>
+Deadknight <olligan@gmail.com>  
 Andrés Cordero <syncmypix@andrew67.com>
