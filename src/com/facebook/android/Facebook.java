@@ -197,10 +197,10 @@ public class Facebook {
         mAuthDialogListener = listener;
 
         // Prefer single sign-on, where available.
-        /*if (activityCode >= 0) {
+        if (activityCode >= 0) {
             singleSignOnStarted = startSingleSignOn(activity, mAppId,
                     permissions, activityCode);
-        }*/
+        }
         // Otherwise fall back to traditional dialog.
         if (!singleSignOnStarted) {
             startDialogAuth(activity, permissions);

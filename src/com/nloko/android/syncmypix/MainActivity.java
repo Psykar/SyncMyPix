@@ -218,6 +218,7 @@ public class MainActivity extends Activity {
     @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
+		fbClient.authorizeCallback(requestCode, resultCode, data);
 		
 		if (resultCode != Activity.RESULT_OK) {
 			return;
