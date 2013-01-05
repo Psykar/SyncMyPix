@@ -45,8 +45,8 @@
             android:key="cache" />
         <Preference  
          android:key="deleteAll" 
-         android:title="Delete all pictures"
-         android:summary="Remove all synchronized pictures" /> 
+         android:title="@string/preferences.deleteAll"
+         android:summary="@string/preferences.deleteAll.summary" /> 
     </PreferenceCategory>
     
 </PreferenceScreen>

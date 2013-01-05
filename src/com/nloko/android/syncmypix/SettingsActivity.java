@@ -22,13 +22,9 @@
 
 package com.nloko.android.syncmypix;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-
 import com.nloko.android.Log;
 import com.nloko.android.Utils;
 import com.nloko.android.syncmypix.R;
-import com.nloko.android.syncmypix.views.ConfirmSyncDialog;
 
 import android.app.AlarmManager;
 import android.app.AlertDialog;
@@ -37,7 +33,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;

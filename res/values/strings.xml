@@ -7,6 +7,8 @@
 	<string name="preferences.cropsquare.summary">Crop a 96px square using midpoint of downloaded picture</string>
 	<string name="preferences.cache">Cache to SD Card</string>
 	<string name="preferences.cache.summary">Cache up to 5Mb of pictures to SD card to save data usage</string>
+	<string name="preferences.deleteAll">Delete all pictures</string>
+	<string name="preferences.deleteAll.summary">Remove all synchronized pictures</string>
 	
 	<string name="preferences.sourceHeader">Sync Source</string>
 	<string name="preferences.source">Social Network</string>
