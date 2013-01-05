@@ -120,12 +120,12 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         sMainActivity = this;
         
+		fbClient = new Facebook(getResources().getString(R.string.facebook_api_key));
+        
         final MainActivity self = this;
         ImageButton sync = (ImageButton) findViewById(R.id.syncButton);
         sync.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-					String key = getResources().getString(R.string.facebook_api_key);
-					fbClient = new Facebook(key);
 					if(!loggedIn || fbClient.getAccessToken() == null)
 					{
 						loggedIn = true;
@@ -191,28 +191,6 @@ public class MainActivity extends Activity {
 				showDialog(ABOUT_DIALOG);
 			}
         });
-		
-		/*mDeleteButton = (ImageButton) findViewById(R.id.delete);
-		mDeleteButton.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				showDialog(DELETE_DIALOG);
-				loggedIn = false;
-				if(fbClient != null)
-					try
-					{
-						fbClient.logout(self);
-					}
-					catch(MalformedURLException e)
-					{
-						e.printStackTrace();
-					}
-					catch(IOException e)
-					{
-						e.printStackTrace();
-					}
-			}
-		});*/
-
     }
     
     @Override
@@ -230,14 +208,6 @@ public class MainActivity extends Activity {
 				break;
 		}
     }
-    
-    // TODO This is needless filler, REMOVE
-    private void logout()
-    {
-    	Utils.setString(getSharedPreferences(SettingsActivity.PREFS_NAME, 0), "session_key", null);
-    	Utils.setString(getSharedPreferences(SettingsActivity.PREFS_NAME, 0), "secret", null);
-    	Utils.setString(getSharedPreferences(SettingsActivity.PREFS_NAME, 0), "uid", null);
-    }  
     
     @SuppressWarnings("unused")
 	private void sendLog()
@@ -337,10 +307,6 @@ public class MainActivity extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-			case R.id.logoutButton:
-				// TODO Working logout button
-				logout();
-				return true;
 			case R.id.deleteAllButton:
 				showDialog(DELETE_DIALOG);
 				return true;

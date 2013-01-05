@@ -22,16 +22,21 @@
 
 package com.nloko.android.syncmypix;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+
 import com.nloko.android.Log;
 import com.nloko.android.Utils;
 import com.nloko.android.syncmypix.R;
 
 import android.app.AlarmManager;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.Preference.OnPreferenceChangeListener;
 
@@ -63,7 +68,7 @@ public class SettingsActivity extends PreferenceActivity {
     {
     	addPreferencesFromResource(R.layout.preferences);	
     	
-    	ListPreference schedule = (ListPreference) findPreference("sched_freq");
+    	final ListPreference schedule = (ListPreference) findPreference("sched_freq");
         schedule.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 			public boolean onPreferenceChange(Preference preference,
 					Object newValue) {
@@ -90,8 +95,9 @@ public class SettingsActivity extends PreferenceActivity {
 			}
         });
         
-        if (MainActivity.isLoggedInFromSyncSource(getBaseContext(), MainActivity.getSyncSource(getBaseContext()))) {
-        	setLoginStatus(R.string.preferences_loggedin);
+        if (MainActivity.GetInstance().GetFacebookClient().isSessionValid()) {
+        	final Preference loginStatus = findPreference("loginStatus");
+       		loginStatus.setSummary(R.string.preferences_loggedin);
         }
     }
 
@@ -113,11 +119,5 @@ public class SettingsActivity extends PreferenceActivity {
     	}
     	
     	return interval;
-    }
-    
-    private void setLoginStatus(int status)
-    {
-   		EditTextPreference loginStatus = (EditTextPreference) findPreference("loginStatus");
-   		loginStatus.setSummary(status);
     }
 }

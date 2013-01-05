@@ -2,7 +2,7 @@
 <PreferenceScreen
 	xmlns:android="http://schemas.android.com/apk/res/android">
      
-     <EditTextPreference  
+     <Preference  
          android:key="loginStatus" 
          android:title="@string/preferences.loginstatus"
          android:summary="@string/preferences.notloggedin"
