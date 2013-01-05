@@ -28,8 +28,12 @@ import java.net.MalformedURLException;
 import com.nloko.android.Log;
 import com.nloko.android.Utils;
 import com.nloko.android.syncmypix.R;
+import com.nloko.android.syncmypix.views.ConfirmSyncDialog;
 
 import android.app.AlarmManager;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -39,12 +43,15 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.widget.Toast;
 
 public class SettingsActivity extends PreferenceActivity {
 	
 	private static final String TAG = "GlobalConfig";
 	public static final String PREFS_NAME = "SyncMyPixPrefs";
 	
+    private final int DELETE_DIALOG = 1;
+	private final int DELETING = 4;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -99,6 +106,14 @@ public class SettingsActivity extends PreferenceActivity {
         	final Preference loginStatus = findPreference("loginStatus");
        		loginStatus.setSummary(R.string.preferences_loggedin);
         }
+        
+        final Preference deleteAll = findPreference("deleteAll");
+        deleteAll.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			public boolean onPreferenceClick(Preference preference) {
+				showDialog(DELETE_DIALOG);
+				return false;
+			}
+		});
     }
 
     public static long getScheduleInterval(int pos)
@@ -120,4 +135,56 @@ public class SettingsActivity extends PreferenceActivity {
     	
     	return interval;
     }
+    
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		switch(id) {
+			case DELETE_DIALOG:
+				AlertDialog.Builder deleteBuilder = new AlertDialog.Builder(this);
+				deleteBuilder.setTitle(R.string.syncresults_deleteDialog)
+					   .setIcon(android.R.drawable.ic_dialog_alert)
+					   .setMessage(R.string.syncresults_deleteDialog_msg)
+				       .setCancelable(false)
+				       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+				           public void onClick(DialogInterface dialog, int id) {
+				               removeDialog(DELETE_DIALOG);
+				               
+				               showDialog(DELETING);
+				               SyncMyPixDbHelper dbHelper = new SyncMyPixDbHelper(getApplicationContext());
+				               dbHelper.deleteAllPictures(new DbHelperNotifier() {
+				            	   public void onUpdateComplete() {
+				            		   runOnUiThread(new Runnable() {
+				            			   public void run() {
+				            				   dismissDialog(DELETING);
+				            				   Toast.makeText(getApplicationContext(),
+													R.string.syncresults_deleted, 
+													Toast.LENGTH_LONG).show();
+											
+				            				   //finish();
+				            			   }
+				            		   });
+				            	   }
+				               });
+				           }
+				       })
+				       .setNegativeButton("No", new DialogInterface.OnClickListener() {
+				    	   public void onClick(DialogInterface dialog, int id) {
+				    		   removeDialog(DELETE_DIALOG);
+				    	   }
+				       });
+				
+				AlertDialog delete = deleteBuilder.create();
+				return delete;
+			
+			case DELETING:
+				ProgressDialog deleting = new ProgressDialog(this);
+				deleting.setCancelable(false);
+				deleting.setMessage(getString(R.string.syncresults_deletingDialog));
+				deleting.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+				return deleting;
+
+		}
+		
+		return super.onCreateDialog(id);
+	}
 }

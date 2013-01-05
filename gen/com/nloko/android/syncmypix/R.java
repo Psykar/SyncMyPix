@@ -60,13 +60,12 @@ public final class R {
         public static final int contactImage=0x7f090025;
         public static final int copyright=0x7f090002;
         public static final int delete=0x7f09001a;
-        public static final int deleteAllButton=0x7f090039;
         public static final int discard=0x7f090009;
-        public static final int filter_all=0x7f09003b;
-        public static final int filter_error=0x7f09003c;
-        public static final int filter_notfound=0x7f09003d;
-        public static final int filter_skipped=0x7f09003e;
-        public static final int filter_updated=0x7f09003f;
+        public static final int filter_all=0x7f09003a;
+        public static final int filter_error=0x7f09003b;
+        public static final int filter_notfound=0x7f09003c;
+        public static final int filter_skipped=0x7f09003d;
+        public static final int filter_updated=0x7f09003e;
         public static final int footer=0x7f090019;
         public static final int help=0x7f09001b;
         public static final int home=0x7f09001c;
@@ -74,7 +73,7 @@ public final class R {
         public static final int image=0x7f090007;
         public static final int info=0x7f090003;
         public static final int logo=0x7f090001;
-        public static final int menu_filter=0x7f09003a;
+        public static final int menu_filter=0x7f090039;
         public static final int notfound=0x7f090023;
         public static final int notfoundLabel=0x7f090022;
         public static final int privacy_policy=0x7f090005;
