@@ -24,8 +24,11 @@
 
 package com.nloko.android.syncmypix.namematcher;
 
+import java.io.InputStream;
+
 import com.nloko.android.Log;
 import com.nloko.android.syncmypix.PhoneContact;
+import com.nloko.android.syncmypix.SyncMyPixPreferences;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -35,8 +38,8 @@ public class NameMatcher2 extends NameMatcher {
 
 	protected final String TAG = "NameMatcher2";
 	
-	public NameMatcher2(Context context, NameMatcherOptions options) throws Exception {
-		super(context, options);
+	public NameMatcher2(Context context, SyncMyPixPreferences prefs, InputStream diminutivesFile) throws Exception {
+		super(context, prefs, diminutivesFile);
 	}
 
 	@Override

@@ -21,12 +21,16 @@
 //
 package com.nloko.android.syncmypix.namematcher;
 
+import java.io.InputStream;
+
+import com.nloko.android.syncmypix.SyncMyPixPreferences;
+
 import android.content.Context;
 
 public class NameMatcherFactory {
-	public static NameMatcher create(Context context, NameMatcherOptions options) throws Exception {
+	public static NameMatcher create(Context context, SyncMyPixPreferences prefs, InputStream diminutivesFile) throws Exception {
 		// NameMatcher2 requires API >= 5, but this project has
 		// minimum API level 8, so this will always hold true
-		return new NameMatcher2(context, options);
+		return new NameMatcher2(context, prefs, diminutivesFile);
 	}
 }

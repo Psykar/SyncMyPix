@@ -45,6 +45,7 @@ import java.util.TreeSet;
 import com.nloko.android.Log;
 import com.nloko.android.Utils;
 import com.nloko.android.syncmypix.PhoneContact;
+import com.nloko.android.syncmypix.SyncMyPixPreferences;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -55,7 +56,7 @@ import gr.spinellis.greek.GreekTranscribe;
 public class NameMatcher {
     protected final String TAG = "NameMatcher";
     protected final String mBadChars = "ŠŚŞŹŽŻşšśžźżŸĄÀÁÂÃÄÅÇĆÈÉÊËĘÌÍÎÏİÐĞŁŃÑÖÒÓÔÕÖÙÚÛÜÝąàáâãäåçćèéêëęìíîïıðğłñńòóôõöùúûüýÿ";
-    protected final String mGoodChars = "SSSZZZssszzzYAAAAAAACCEEEEEIIIIIDGLNNOOOOOOUUUUYaaaaaaacceeeeeiiiiidglnnooooouuuuyy ";
+   protected final String mGoodChars = "SSSZZZssszzzYAAAAAAACCEEEEEIIIIIDGLNNOOOOOOUUUUYaaaaaaacceeeeeiiiiidglnnooooouuuuyy ";
     
     private final TreeMap<String, ArrayList<PhoneContact>> mFirstNames = new TreeMap<String, ArrayList<PhoneContact>>();; 
     private final TreeMap<String, ArrayList<PhoneContact>> mLastNames = new TreeMap<String, ArrayList<PhoneContact>>();
@@ -63,17 +64,17 @@ public class NameMatcher {
     
     private final HashMap<String, Object> mDiminutives = new HashMap<String, Object>();
     protected final WeakReference<Context> mContext;
-    protected final NameMatcherOptions options;
+    protected final SyncMyPixPreferences prefs;
     
-    public NameMatcher(Context context, NameMatcherOptions options) throws Exception {
+    public NameMatcher(Context context, SyncMyPixPreferences prefs, InputStream diminutivesFile) throws Exception {
     	//this(context, options.diminutives, options.withPhone);
     	mContext = new WeakReference<Context>(context);
-    	this.options = options;
+    	this.prefs = prefs;
     	
         // Build data structures for the first and last names, so we can
         // efficiently do partial matches (eg "Rob" -> "Robert").
-    	if (options.withDiminutives) loadDiminutives(options.diminutives);
-    	loadPhoneContacts(options.withPhone);
+    	if (prefs.getConsiderDiminutives()) loadDiminutives(diminutivesFile);
+    	loadPhoneContacts(prefs.getPhoneOnly());
     }
     
     protected PhoneContact createFromCursor(Cursor cursor) {

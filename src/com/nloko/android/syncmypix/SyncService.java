@@ -37,7 +37,6 @@ import com.nloko.android.syncmypix.SyncMyPixDbHelper.DBHashes;
 import com.nloko.android.syncmypix.contactutils.ContactUtils;
 import com.nloko.android.syncmypix.namematcher.NameMatcher;
 import com.nloko.android.syncmypix.namematcher.NameMatcherFactory;
-import com.nloko.android.syncmypix.namematcher.NameMatcherOptions;
 
 import android.app.AlarmManager;
 import android.app.Notification;
@@ -500,11 +499,10 @@ public abstract class SyncService extends Service {
     		
 			synchronized(mSyncLock) {
 				try {
-					matcher = NameMatcherFactory.create(service.getApplicationContext(),
-							new NameMatcherOptions()
-							.setWithDiminutives(service.mConsiderDiminutives)
-							.setDiminutives(service.getResources().openRawResource(R.raw.diminutives))
-							.setWithPhone(service.mPhoneOnly)
+					matcher = NameMatcherFactory.create(
+							service.getApplicationContext(),
+							new SyncMyPixPreferences(service.getApplicationContext()),
+							service.getResources().openRawResource(R.raw.diminutives)
 					);
 					
 					//matcher.dump();

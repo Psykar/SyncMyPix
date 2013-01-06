@@ -30,8 +30,7 @@ public final class SyncMyPixPreferences {
 
 	protected Context context;
 	
-	public SyncMyPixPreferences(Context context)
-	{
+	public SyncMyPixPreferences(Context context) {
 		if (context == null) {
 			throw new IllegalArgumentException("context");
 		}
@@ -41,115 +40,92 @@ public final class SyncMyPixPreferences {
 	}
 	
 	private boolean googleSyncToggledOff;
-	public boolean isGoogleSyncToggledOff()
-	{
+
+	public boolean isGoogleSyncToggledOff() {
 		return googleSyncToggledOff;
 	}
-	
+
 	private boolean allowGoogleSync;
-	public boolean getAllowGoogleSync()
-	{
+
+	public boolean getAllowGoogleSync() {
 		return allowGoogleSync;
 	}
-	
+
 	private boolean skipIfExists;
-	public boolean getSkipIfExists()
-	{
+
+	public boolean getSkipIfExists() {
 		return skipIfExists;
 	}
-	
-    private boolean skipIfConflict;
-    public boolean getSkipIfConflict()
-	{
+
+	private boolean skipIfConflict;
+
+	public boolean getSkipIfConflict() {
 		return skipIfConflict;
 	}
-    
-    private boolean overrideReadOnlyCheck;
-    public boolean overrideReadOnlyCheck()
-    {
-    	return overrideReadOnlyCheck;
-    }
-    
-    private boolean maxQuality;
-    public boolean getMaxQuality()
-	{
+
+	private boolean overrideReadOnlyCheck;
+
+	public boolean overrideReadOnlyCheck() {
+		return overrideReadOnlyCheck;
+	}
+
+	private boolean maxQuality;
+
+	public boolean getMaxQuality() {
 		return maxQuality;
 	}
-    
-    private boolean cropSquare;
-    public boolean getCropSquare()
-	{
+
+	private boolean cropSquare;
+
+	public boolean getCropSquare() {
 		return cropSquare;
 	}
-    
-    private boolean cache;
-    public boolean getCache()
-	{
+
+	private boolean cache;
+
+	public boolean getCache() {
 		return cache;
 	}
-    
-    private boolean intelliMatch;
-    public boolean getIntelliMatch()
-	{
+
+	private boolean intelliMatch;
+
+	public boolean getIntelliMatch() {
 		return intelliMatch;
 	}
-    
-    private boolean phoneOnly;
-    public boolean getPhoneOnly()
-	{
+
+	private boolean phoneOnly;
+
+	public boolean getPhoneOnly() {
 		return phoneOnly;
 	}
-    
-    private String source;
-    public String getSource()
-    {
-    	return source;
-    }
-    
-    private boolean considerDiminutives;
-    public boolean getConsiderDiminutives()
-    {
-    	return considerDiminutives;
-    }
-    
-//	private <T extends SyncService> String getSocialNetworkName (Class<T> source)
-//	{
-//		try {
-//			Method m = source.getMethod("getSocialNetworkName");
-//			return (String) m.invoke(null);
-//
-//		} catch (SecurityException e) {
-//			e.printStackTrace();
-//		} catch (NoSuchMethodException e) {
-//			e.printStackTrace();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		return SyncService.getSocialNetworkName();
-//	}
+
+	private boolean considerDiminutives;
+
+	public boolean getConsiderDiminutives() {
+		return considerDiminutives;
+	}
+
+	public String getSource() {
+		return "Facebook";
+	}
 	
     private void getPreferences(Context context)
     {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-	
-		//source = getSocialNetworkName(MainActivity.getSyncSource(context));
-		
+
+		// Legacy backend preferences; will not touch
 		googleSyncToggledOff = prefs.getBoolean("googleSyncToggledOff", false); 
 		skipIfConflict = prefs.getBoolean("skipIfConflict", false);
-
 		maxQuality = true;
 		allowGoogleSync = true;
-    	
-		//skipIfExists = prefs.getBoolean("skipIfExists", 
-    	//		Integer.parseInt(Build.VERSION.SDK) >= Build.VERSION_CODES.ECLAIR ? false : true);
 		skipIfExists = false;
-    	
 		overrideReadOnlyCheck = prefs.getBoolean("overrideReadOnlyCheck", true);
+		
+		// Active user-changeable preferences
     	cropSquare = prefs.getBoolean("cropSquare", false);
-    	intelliMatch = prefs.getBoolean("intelliMatch", true);
     	phoneOnly = prefs.getBoolean("phoneOnly", false);
-    	considerDiminutives = prefs.getBoolean("matchDiminutives", true);
     	cache = prefs.getBoolean("cache", true);
+    	intelliMatch = prefs.getBoolean("intelliMatch", true);
+    	considerDiminutives = prefs.getBoolean("matchDiminutives", true);
     }
 }
