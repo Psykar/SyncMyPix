@@ -1,8 +1,8 @@
 //
-//    NameMatcherFactory.java is part of SyncMyPix
+//    NameMatcherOptions.java is part of SyncMyPix
 //
 //    Authors:
-//        Neil Loknath <neil.loknath@gmail.com>
+//        Andrés Cordero <syncmypix@andrew67.com>
 //
 //    Copyright (c) 2009 Neil Loknath
 //
@@ -23,18 +23,8 @@ package com.nloko.android.syncmypix.namematcher;
 
 import java.io.InputStream;
 
-import android.content.Context;
-
-public class NameMatcherFactory {
-	public static NameMatcher create(Context context, InputStream diminutives) throws Exception {
-		return create(context, diminutives, false);
-	}
-	public static NameMatcher create(Context context, InputStream diminutives, boolean withPhone) throws Exception {
-		// NameMatcher2 requires API >= 5, but this project has
-		// minimum API level 8, so this will always hold true
-		return new NameMatcher2(context, diminutives, withPhone);
-	}
-	public static NameMatcher create(Context context, NameMatcherOptions options) throws Exception {
-		return create(context, options.diminutives, options.withPhone);
-	}
+public class NameMatcherOptions {
+	public boolean withPhone = false;
+	public boolean withDiminutives = false;
+	public InputStream diminutives = null;
 }
