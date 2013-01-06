@@ -29,13 +29,19 @@
         <PreferenceScreen
 	        android:title="@string/preferences.intelliMatch.more"
 	        android:persistent="false"
-	        android:enabled="false"
+	        android:dependency="intelliMatch"
 	        android:key="intelliMatch_more" >
 	        <CheckBoxPreference
 	            android:title="@string/preferences.intelliMatch.diminutives"
 	            android:defaultValue="true"
 	            android:summary="@string/preferences.intelliMatch.diminutives.summary"
-	            android:key="matchDiminutives"/>
+	            android:key="matchDiminutives" />
+	        <CheckBoxPreference
+	            android:title="@string/preferences.intelliMatch.spanish"
+	            android:defaultValue="false"
+	            android:summary="@string/preferences.intelliMatch.spanish.summary"
+	            android:enabled="false"
+	            android:key="spanishNames" />
         </PreferenceScreen>
             
         <CheckBoxPreference

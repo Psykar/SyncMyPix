@@ -26,7 +26,9 @@
     <string name="preferences.intelliMatch.summary">Try to account for names not formatted as first name last name</string>
     <string name="preferences.intelliMatch.more">Smart matching options</string>
     <string name="preferences.intelliMatch.diminutives">Consider diminutives</string>
-    <string name="preferences.intelliMatch.diminutives.summary">Matches Rob as Robert, etc.</string>
+    <string name="preferences.intelliMatch.diminutives.summary">Matches Rob with Robert</string>
+    <string name="preferences.intelliMatch.spanish">Spanish names</string>
+    <string name="preferences.intelliMatch.spanish.summary">Matches José Rodríguez-Ramos and José Rodríguez Ramos with José Rodríguez</string>
     
     <string name="preferences.firstNames">First name only</string>
     <string name="preferences.firstNames.summary">Match on first name only, if unique</string>
