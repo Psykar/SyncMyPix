@@ -106,6 +106,12 @@ public final class SyncMyPixPreferences {
     	return source;
     }
     
+    private boolean considerDiminutives;
+    public boolean getConsiderDiminutives()
+    {
+    	return considerDiminutives;
+    }
+    
 //	private <T extends SyncService> String getSocialNetworkName (Class<T> source)
 //	{
 //		try {
@@ -143,6 +149,7 @@ public final class SyncMyPixPreferences {
     	cropSquare = prefs.getBoolean("cropSquare", false);
     	intelliMatch = prefs.getBoolean("intelliMatch", true);
     	phoneOnly = prefs.getBoolean("phoneOnly", false);
+    	considerDiminutives = prefs.getBoolean("matchDiminutives", true);
     	cache = prefs.getBoolean("cache", true);
     }
 }

@@ -85,6 +85,7 @@ public abstract class SyncService extends Service {
     protected boolean mIntelliMatch;
     protected boolean mPhoneOnly;
     protected boolean mCacheOn;
+    protected boolean mConsiderDiminutives;
     protected SyncServiceListener mListener;
 	protected final MainHandler mMainHandler = new MainHandler(this);
 
@@ -501,7 +502,7 @@ public abstract class SyncService extends Service {
 				try {
 					matcher = NameMatcherFactory.create(service.getApplicationContext(),
 							new NameMatcherOptions()
-							.setWithDiminutives(true)
+							.setWithDiminutives(service.mConsiderDiminutives)
 							.setDiminutives(service.getResources().openRawResource(R.raw.diminutives))
 							.setWithPhone(service.mPhoneOnly)
 					);
@@ -644,6 +645,7 @@ public abstract class SyncService extends Service {
     	mIntelliMatch = prefs.getIntelliMatch();
     	mPhoneOnly = prefs.getPhoneOnly();
     	mCacheOn = prefs.getCache();
+    	mConsiderDiminutives = prefs.getConsiderDiminutives();
     	
     	Log.d(TAG, "PhoneOnly is " + mPhoneOnly);
     }

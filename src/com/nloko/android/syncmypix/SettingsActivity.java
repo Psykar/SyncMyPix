@@ -33,6 +33,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -102,11 +103,22 @@ public class SettingsActivity extends PreferenceActivity {
        		loginStatus.setSummary(R.string.preferences_loggedin);
         }
         
-        final Preference deleteAll = findPreference("deleteAll");
-        deleteAll.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+        findPreference("deleteAll").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
 				showDialog(DELETE_DIALOG);
 				return false;
+			}
+		});
+        
+        final CheckBoxPreference intelliMatch = (CheckBoxPreference) findPreference("intelliMatch");
+        final Preference intelliMatch_more = findPreference("intelliMatch_more");
+        if (intelliMatch.isChecked()) {
+        	intelliMatch_more.setEnabled(true);
+        }
+        intelliMatch.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				intelliMatch_more.setEnabled((Boolean) newValue);
+				return true;
 			}
 		});
     }

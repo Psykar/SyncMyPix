@@ -21,8 +21,13 @@
     <string name="preferences.skipIfConflict.summary">Skip when multiple contacts are found for a single social networking friend</string>
     <string name="preferences.reverseNames">Reverse names</string>
     <string name="preferences.reverseNames.summary">Reverse first and last name of social networking friend</string>
+    
     <string name="preferences.intelliMatch">Smart name matching</string>
     <string name="preferences.intelliMatch.summary">Try to account for names not formatted as first name last name</string>
+    <string name="preferences.intelliMatch.more">Smart matching options</string>
+    <string name="preferences.intelliMatch.diminutives">Consider diminutives</string>
+    <string name="preferences.intelliMatch.diminutives.summary">Matches Rob as Robert, etc.</string>
+    
     <string name="preferences.firstNames">First name only</string>
     <string name="preferences.firstNames.summary">Match on first name only, if unique</string>
     <string name="preferences.phoneOnly">Phone numbers only</string>

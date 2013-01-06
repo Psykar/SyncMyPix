@@ -25,6 +25,18 @@
             android:defaultValue="true"
             android:summary="@string/preferences.intelliMatch.summary"
             android:key="intelliMatch" />
+        
+        <PreferenceScreen
+	        android:title="@string/preferences.intelliMatch.more"
+	        android:persistent="false"
+	        android:enabled="false"
+	        android:key="intelliMatch_more" >
+	        <CheckBoxPreference
+	            android:title="@string/preferences.intelliMatch.diminutives"
+	            android:defaultValue="true"
+	            android:summary="@string/preferences.intelliMatch.diminutives.summary"
+	            android:key="matchDiminutives"/>
+        </PreferenceScreen>
             
         <CheckBoxPreference
             android:title="@string/preferences.phoneOnly"
