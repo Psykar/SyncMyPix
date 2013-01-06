@@ -60,21 +60,20 @@ public class NameMatcher {
     private final TreeMap<String, ArrayList<PhoneContact>> mFirstNames = new TreeMap<String, ArrayList<PhoneContact>>();; 
     private final TreeMap<String, ArrayList<PhoneContact>> mLastNames = new TreeMap<String, ArrayList<PhoneContact>>();
     private final HashMap<Object, ArrayList<PhoneContact>> mNickNames = new HashMap<Object, ArrayList<PhoneContact>>();;
+    
     private final HashMap<String, Object> mDiminutives = new HashMap<String, Object>();
-    
     protected final WeakReference<Context> mContext;
-    
-    private NameMatcher(Context context, InputStream diminutives, boolean withPhone) throws Exception {
-        mContext = new WeakReference<Context>(context);
-    	loadDiminutives(diminutives);
-        // Build data structures for the first and last names, so we can
-        // efficiently do partial matches (eg "Rob" -> "Robert").
-         
-    	loadPhoneContacts(withPhone);
-    }
+    protected final NameMatcherOptions options;
     
     public NameMatcher(Context context, NameMatcherOptions options) throws Exception {
-    	this(context, options.diminutives, options.withPhone);
+    	//this(context, options.diminutives, options.withPhone);
+    	mContext = new WeakReference<Context>(context);
+    	this.options = options;
+    	
+        // Build data structures for the first and last names, so we can
+        // efficiently do partial matches (eg "Rob" -> "Robert").
+    	if (options.withDiminutives) loadDiminutives(options.diminutives);
+    	loadPhoneContacts(options.withPhone);
     }
     
     protected PhoneContact createFromCursor(Cursor cursor) {
