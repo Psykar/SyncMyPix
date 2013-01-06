@@ -27,4 +27,18 @@ public class NameMatcherOptions {
 	public boolean withPhone = false;
 	public boolean withDiminutives = false;
 	public InputStream diminutives = null;
+	
+	// chainable setters
+	public NameMatcherOptions setWithPhone(final boolean withPhone) {
+		this.withPhone = withPhone;
+		return this;
+	}
+	public NameMatcherOptions setWithDiminutives(final boolean withDiminutives) {
+		this.withDiminutives = withDiminutives;
+		return this;
+	}
+	public NameMatcherOptions setDiminutives(final InputStream diminutives) {
+		this.diminutives = diminutives;
+		return this;
+	}
 }

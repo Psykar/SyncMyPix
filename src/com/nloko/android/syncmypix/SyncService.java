@@ -499,11 +499,12 @@ public abstract class SyncService extends Service {
     		
 			synchronized(mSyncLock) {
 				try {
-					final NameMatcherOptions options = new NameMatcherOptions();
-					options.withDiminutives = true;
-					options.diminutives = service.getResources().openRawResource(R.raw.diminutives);
-					options.withPhone = service.mPhoneOnly;
-					matcher = NameMatcherFactory.create(service.getApplicationContext(), options);
+					matcher = NameMatcherFactory.create(service.getApplicationContext(),
+							new NameMatcherOptions()
+							.setWithDiminutives(true)
+							.setDiminutives(service.getResources().openRawResource(R.raw.diminutives))
+							.setWithPhone(service.mPhoneOnly)
+					);
 					
 					//matcher.dump();
 					

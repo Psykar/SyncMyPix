@@ -64,13 +64,17 @@ public class NameMatcher {
     
     protected final WeakReference<Context> mContext;
     
-    public NameMatcher(Context context, InputStream diminutives, boolean withPhone) throws Exception {
+    private NameMatcher(Context context, InputStream diminutives, boolean withPhone) throws Exception {
         mContext = new WeakReference<Context>(context);
     	loadDiminutives(diminutives);
         // Build data structures for the first and last names, so we can
         // efficiently do partial matches (eg "Rob" -> "Robert").
          
     	loadPhoneContacts(withPhone);
+    }
+    
+    public NameMatcher(Context context, NameMatcherOptions options) throws Exception {
+    	this(context, options.diminutives, options.withPhone);
     }
     
     protected PhoneContact createFromCursor(Cursor cursor) {
