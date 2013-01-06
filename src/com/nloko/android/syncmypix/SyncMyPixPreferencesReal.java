@@ -30,87 +30,77 @@ public final class SyncMyPixPreferencesReal implements SyncMyPixPreferences {
 
 	protected Context context;
 	
-	public SyncMyPixPreferencesReal(Context context) {
-		if (context == null) {
-			throw new IllegalArgumentException("context");
-		}
-		
-		this.context = context;
-		getPreferences(context);
-	}
-	
-	private boolean googleSyncToggledOff;
-
+	private final boolean googleSyncToggledOff;
 	public boolean isGoogleSyncToggledOff() {
 		return googleSyncToggledOff;
 	}
 
-	private boolean allowGoogleSync;
-
+	private final boolean allowGoogleSync;
 	public boolean getAllowGoogleSync() {
 		return allowGoogleSync;
 	}
 
-	private boolean skipIfExists;
-
+	private final boolean skipIfExists;
 	public boolean getSkipIfExists() {
 		return skipIfExists;
 	}
 
-	private boolean skipIfConflict;
-
+	private final boolean skipIfConflict;
 	public boolean getSkipIfConflict() {
 		return skipIfConflict;
 	}
 
-	private boolean overrideReadOnlyCheck;
-
+	private final boolean overrideReadOnlyCheck;
 	public boolean overrideReadOnlyCheck() {
 		return overrideReadOnlyCheck;
 	}
 
-	private boolean maxQuality;
-
+	private final boolean maxQuality;
 	public boolean getMaxQuality() {
 		return maxQuality;
 	}
 
-	private boolean cropSquare;
-
+	private final boolean cropSquare;
 	public boolean getCropSquare() {
 		return cropSquare;
 	}
 
-	private boolean cache;
-
+	private final boolean cache;
 	public boolean getCache() {
 		return cache;
 	}
 
-	private boolean intelliMatch;
-
+	private final boolean intelliMatch;
 	public boolean getIntelliMatch() {
 		return intelliMatch;
 	}
 
-	private boolean phoneOnly;
-
+	private final boolean phoneOnly;
 	public boolean getPhoneOnly() {
 		return phoneOnly;
 	}
 
-	private boolean considerDiminutives;
-
+	private final boolean considerDiminutives;
 	public boolean getConsiderDiminutives() {
 		return considerDiminutives;
+	}
+	
+	private final boolean romanizeGreek;
+	public boolean getRomanizeGreek() {
+		return romanizeGreek;
 	}
 
 	public String getSource() {
 		return "Facebook";
 	}
 	
-    private void getPreferences(Context context)
-    {
+	public SyncMyPixPreferencesReal(Context context) {
+		if (context == null) {
+			throw new IllegalArgumentException("context");
+		}
+		
+		this.context = context;
+		
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
 		// Legacy backend preferences; will not touch
@@ -127,5 +117,7 @@ public final class SyncMyPixPreferencesReal implements SyncMyPixPreferences {
     	cache = prefs.getBoolean("cache", true);
     	intelliMatch = prefs.getBoolean("intelliMatch", true);
     	considerDiminutives = prefs.getBoolean("matchDiminutives", true);
-    }
+    	romanizeGreek = prefs.getBoolean("romanizeGreek", false);
+	}
+
 }

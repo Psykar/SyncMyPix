@@ -37,6 +37,11 @@
 	            android:summary="@string/preferences.intelliMatch.diminutives.summary"
 	            android:key="matchDiminutives" />
 	        <CheckBoxPreference
+	            android:title="@string/preferences.intelliMatch.greek"
+	            android:defaultValue="false"
+	            android:summary="@string/preferences.intelliMatch.greek.summary"
+	            android:key="romanizeGreek" />
+	        <CheckBoxPreference
 	            android:title="@string/preferences.intelliMatch.spanish"
 	            android:defaultValue="false"
 	            android:summary="@string/preferences.intelliMatch.spanish.summary"

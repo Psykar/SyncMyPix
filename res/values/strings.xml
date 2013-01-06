@@ -29,6 +29,8 @@
     <string name="preferences.intelliMatch.diminutives.summary">Matches Rob with Robert</string>
     <string name="preferences.intelliMatch.spanish">Spanish names</string>
     <string name="preferences.intelliMatch.spanish.summary">Matches José Rodríguez-Ramos and José Rodríguez Ramos with José Rodríguez</string>
+    <string name="preferences.intelliMatch.greek">Romanize Greek</string>
+    <string name="preferences.intelliMatch.greek.summary">Matches Σοφία with Sofia</string>
     
     <string name="preferences.firstNames">First name only</string>
     <string name="preferences.firstNames.summary">Match on first name only, if unique</string>
