@@ -24,6 +24,7 @@
 package com.nloko.android.syncmypix.views;
 
 import com.nloko.android.syncmypix.SyncMyPixPreferences;
+import com.nloko.android.syncmypix.SyncMyPixPreferencesReal;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -41,7 +42,7 @@ public final class ConfirmSyncDialog extends AlertDialog {
 
 	private void initialize(Context context)
 	{
-		SyncMyPixPreferences prefs = new SyncMyPixPreferences(context);
+		SyncMyPixPreferences prefs = new SyncMyPixPreferencesReal(context);
 		
 		String msg = "Social Network: " + prefs.getSource() + "\n" +
 					 "Skip if non-SyncMyPix picture: " + translateBool(prefs.getSkipIfExists()) + "\n" +

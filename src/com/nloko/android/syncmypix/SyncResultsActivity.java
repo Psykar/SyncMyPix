@@ -571,7 +571,7 @@ public class SyncResultsActivity extends Activity {
 				null);
 		
 		if (cursor.moveToFirst()) {
-			final SyncMyPixPreferences prefs = new SyncMyPixPreferences(getApplicationContext());
+			final SyncMyPixPreferences prefs = new SyncMyPixPreferencesReal(getApplicationContext());
 
 			
 			if (!mContactUtils.isContactUpdatable(resolver, contactId) && !prefs.overrideReadOnlyCheck()) {
@@ -1200,7 +1200,7 @@ public class SyncResultsActivity extends Activity {
 				return;
 			}
 			
-			final SyncMyPixPreferences prefs = new SyncMyPixPreferences(activity.getApplicationContext());
+			final SyncMyPixPreferences prefs = new SyncMyPixPreferencesReal(activity.getApplicationContext());
 			
 			String url = (String) msg.obj;
 			if (url != null) {

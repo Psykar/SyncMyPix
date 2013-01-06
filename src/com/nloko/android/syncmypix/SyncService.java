@@ -501,7 +501,7 @@ public abstract class SyncService extends Service {
 				try {
 					matcher = NameMatcherFactory.create(
 							service.getApplicationContext(),
-							new SyncMyPixPreferences(service.getApplicationContext()),
+							new SyncMyPixPreferencesReal(service.getApplicationContext()),
 							service.getResources().openRawResource(R.raw.diminutives)
 					);
 					
@@ -632,7 +632,7 @@ public abstract class SyncService extends Service {
     
     private void getPreferences()
     {
-		SyncMyPixPreferences prefs = new SyncMyPixPreferences(getApplicationContext());
+		SyncMyPixPreferences prefs = new SyncMyPixPreferencesReal(getApplicationContext());
 		
 		mAllowGoogleSync = prefs.getAllowGoogleSync();
 		mSkipIfConflict = prefs.getSkipIfConflict();

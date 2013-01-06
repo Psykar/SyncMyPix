@@ -22,110 +22,17 @@
 
 package com.nloko.android.syncmypix;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
-public final class SyncMyPixPreferences {
-
-	protected Context context;
-	
-	public SyncMyPixPreferences(Context context) {
-		if (context == null) {
-			throw new IllegalArgumentException("context");
-		}
-		
-		this.context = context;
-		getPreferences(context);
-	}
-	
-	private boolean googleSyncToggledOff;
-
-	public boolean isGoogleSyncToggledOff() {
-		return googleSyncToggledOff;
-	}
-
-	private boolean allowGoogleSync;
-
-	public boolean getAllowGoogleSync() {
-		return allowGoogleSync;
-	}
-
-	private boolean skipIfExists;
-
-	public boolean getSkipIfExists() {
-		return skipIfExists;
-	}
-
-	private boolean skipIfConflict;
-
-	public boolean getSkipIfConflict() {
-		return skipIfConflict;
-	}
-
-	private boolean overrideReadOnlyCheck;
-
-	public boolean overrideReadOnlyCheck() {
-		return overrideReadOnlyCheck;
-	}
-
-	private boolean maxQuality;
-
-	public boolean getMaxQuality() {
-		return maxQuality;
-	}
-
-	private boolean cropSquare;
-
-	public boolean getCropSquare() {
-		return cropSquare;
-	}
-
-	private boolean cache;
-
-	public boolean getCache() {
-		return cache;
-	}
-
-	private boolean intelliMatch;
-
-	public boolean getIntelliMatch() {
-		return intelliMatch;
-	}
-
-	private boolean phoneOnly;
-
-	public boolean getPhoneOnly() {
-		return phoneOnly;
-	}
-
-	private boolean considerDiminutives;
-
-	public boolean getConsiderDiminutives() {
-		return considerDiminutives;
-	}
-
-	public String getSource() {
-		return "Facebook";
-	}
-	
-    private void getPreferences(Context context)
-    {
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-		// Legacy backend preferences; will not touch
-		googleSyncToggledOff = prefs.getBoolean("googleSyncToggledOff", false); 
-		skipIfConflict = prefs.getBoolean("skipIfConflict", false);
-		maxQuality = true;
-		allowGoogleSync = true;
-		skipIfExists = false;
-		overrideReadOnlyCheck = prefs.getBoolean("overrideReadOnlyCheck", true);
-		
-		// Active user-changeable preferences
-    	cropSquare = prefs.getBoolean("cropSquare", false);
-    	phoneOnly = prefs.getBoolean("phoneOnly", false);
-    	cache = prefs.getBoolean("cache", true);
-    	intelliMatch = prefs.getBoolean("intelliMatch", true);
-    	considerDiminutives = prefs.getBoolean("matchDiminutives", true);
-    }
+public interface SyncMyPixPreferences {
+	public boolean isGoogleSyncToggledOff();
+	public boolean getAllowGoogleSync();
+	public boolean getSkipIfExists();
+	public boolean getSkipIfConflict();
+	public boolean overrideReadOnlyCheck();
+	public boolean getMaxQuality();
+	public boolean getCropSquare();
+	public boolean getCache();
+	public boolean getIntelliMatch();
+	public boolean getPhoneOnly();
+	public boolean getConsiderDiminutives();
+	public String getSource();
 }
