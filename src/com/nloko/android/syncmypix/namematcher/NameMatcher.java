@@ -87,6 +87,26 @@ public class NameMatcher {
 		Log.d(TAG, "NameMatcher is processing contact " + name + " " + lookup);
 		return new PhoneContact(id, name, lookup);
 	}
+	
+	protected Cursor doQuery(boolean withPhone) {
+		Context context = mContext.get();
+    	if (context == null) {
+    		return null;
+    	}
+    	
+    	String where = null;
+        if (withPhone) {
+        	where = ContactsContract.Contacts.HAS_PHONE_NUMBER +"=1";
+        }
+        
+        Log.d(TAG, "Querying database for contacts..");
+        
+		return context.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, 
+				new String[] { ContactsContract.Contacts._ID, ContactsContract.Contacts.DISPLAY_NAME, ContactsContract.Contacts.LOOKUP_KEY },
+				where, 
+				null, 
+				null);
+	}
     
     protected void loadPhoneContacts(boolean withPhone) {
 
@@ -134,27 +154,6 @@ public class NameMatcher {
         
        	cursor.close();
     }
-    
-	protected Cursor doQuery(boolean withPhone) {
-		Context context = mContext.get();
-    	if (context == null) {
-    		return null;
-    	}
-    	
-    	String where = null;
-        if (withPhone) {
-        	where = ContactsContract.Contacts.HAS_PHONE_NUMBER +"=1";
-        }
-        
-        Log.d(TAG, "Querying database for contacts..");
-        
-		return context.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, 
-				//new String[] { Contacts._ID, Contacts.DISPLAY_NAME, Contacts.HAS_PHONE_NUMBER}, 
-				null,
-				where, 
-				null, 
-				null);
-	}
     
     public void destroy() {
     	if (mFirstNames != null) {
@@ -516,7 +515,7 @@ public class NameMatcher {
         PhoneContact alejandro = new PhoneContact("2", "Alejandro Cuervo", "", "");
         PhoneContact tala = new PhoneContact("3", "Tala von Daniken", "", "");
         PhoneContact paul = new PhoneContact("4", "Paul Dunlop", "", "");
-        PhoneContact andre = new PhoneContact("5", "Andrea BeltrÃƒâ€�ÃƒÂ¸Ã�Â©n", "", "");
+        PhoneContact andre = new PhoneContact("5", "Andrea Beltrán", "", "");
         PhoneContact joanna1 = new PhoneContact("6", "Joanna Frisch", "", "");
         PhoneContact joanna2 = new PhoneContact("7", "Joanna Something", "", "");
         PhoneContact stribb = new PhoneContact("8", "Andrew Stribblehill", "", "");

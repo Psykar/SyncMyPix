@@ -42,6 +42,30 @@
 	            android:summary="@string/preferences.intelliMatch.greek.summary"
 	            android:key="romanizeGreek" />
 	        <CheckBoxPreference
+	            android:title="@string/preferences.intelliMatch.first"
+	            android:defaultValue="true"
+	            android:summary="@string/preferences.intelliMatch.first.summary"
+	            android:enabled="false"
+	            android:key="firstNameOnly" />
+	        <CheckBoxPreference
+	            android:title="@string/preferences.intelliMatch.last"
+	            android:defaultValue="true"
+	            android:summary="@string/preferences.intelliMatch.last.summary"
+	            android:enabled="false"
+	            android:key="lastNameOnly" />
+	        <CheckBoxPreference
+	            android:title="@string/preferences.intelliMatch.prefix"
+	            android:defaultValue="true"
+	            android:summary="@string/preferences.intelliMatch.prefix.summary"
+	            android:enabled="false"
+	            android:key="prefixMatch" />
+	        <CheckBoxPreference
+	            android:title="@string/preferences.intelliMatch.reverse"
+	            android:defaultValue="true"
+	            android:summary="@string/preferences.intelliMatch.reverse.summary"
+	            android:enabled="false"
+	            android:key="reverseMatch" />
+	        <CheckBoxPreference
 	            android:title="@string/preferences.intelliMatch.spanish"
 	            android:defaultValue="false"
 	            android:summary="@string/preferences.intelliMatch.spanish.summary"
