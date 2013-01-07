@@ -27,10 +27,12 @@ import com.nloko.android.syncmypix.SyncMyPixPreferences;
 
 import android.content.Context;
 
+// The point of this factory was to create NameMatcher instances
+// depending on API level and parameters passed.
+// As I've merged both and standardized params everywhere,
+// this factory is at present time useless.
 public class NameMatcherFactory {
 	public static NameMatcher create(Context context, SyncMyPixPreferences prefs, InputStream diminutivesFile) throws Exception {
-		// NameMatcher2 requires API >= 5, but this project has
-		// minimum API level 8, so this will always hold true
-		return new NameMatcher2(context, prefs, diminutivesFile);
+		return new NameMatcher(context, prefs, diminutivesFile);
 	}
 }

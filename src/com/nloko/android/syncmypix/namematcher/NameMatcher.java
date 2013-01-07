@@ -49,7 +49,7 @@ import com.nloko.android.syncmypix.SyncMyPixPreferences;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.provider.Contacts.People;
+import android.provider.ContactsContract;
 
 import gr.spinellis.greek.GreekTranscribe;
 
@@ -67,7 +67,6 @@ public class NameMatcher {
     protected final SyncMyPixPreferences prefs;
     
     public NameMatcher(Context context, SyncMyPixPreferences prefs, InputStream diminutivesFile) throws Exception {
-    	//this(context, options.diminutives, options.withPhone);
     	mContext = new WeakReference<Context>(context);
     	this.prefs = prefs;
     	
@@ -77,16 +76,17 @@ public class NameMatcher {
     	loadPhoneContacts(prefs.getPhoneOnly());
     }
     
-    protected PhoneContact createFromCursor(Cursor cursor) {
+	protected PhoneContact createFromCursor(Cursor cursor) {
     	if (cursor == null || cursor.isClosed()) {
     		return null;
     	}
     	
-    	String id = cursor.getString(cursor.getColumnIndex(People._ID));
-		String name = cursor.getString(cursor.getColumnIndex(People.NAME));
-		if (Log.debug) Log.d(TAG, "NameMatcher is processing contact " + name);
-		return new PhoneContact(id, name);
-    }
+    	String id = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
+		String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+		String lookup = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY));
+		Log.d(TAG, "NameMatcher is processing contact " + name + " " + lookup);
+		return new PhoneContact(id, name, lookup);
+	}
     
     protected void loadPhoneContacts(boolean withPhone) {
 
@@ -135,23 +135,26 @@ public class NameMatcher {
        	cursor.close();
     }
     
-    protected Cursor doQuery(boolean withPhone) {
-    	Context context = mContext.get();
+	protected Cursor doQuery(boolean withPhone) {
+		Context context = mContext.get();
     	if (context == null) {
     		return null;
     	}
     	
-    	String where = "";
+    	String where = null;
         if (withPhone) {
-        	where = People.PRIMARY_PHONE_ID + " IS NOT NULL";
+        	where = ContactsContract.Contacts.HAS_PHONE_NUMBER +"=1";
         }
         
-		return context.getContentResolver().query(People.CONTENT_URI, 
-				new String[] { People._ID, People.NAME, People.PRIMARY_PHONE_ID}, 
+        Log.d(TAG, "Querying database for contacts..");
+        
+		return context.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, 
+				//new String[] { Contacts._ID, Contacts.DISPLAY_NAME, Contacts.HAS_PHONE_NUMBER}, 
+				null,
 				where, 
 				null, 
 				null);
-    }
+	}
     
     public void destroy() {
     	if (mFirstNames != null) {
@@ -244,11 +247,6 @@ public class NameMatcher {
                         mDiminutives.put(names[i], sentinel);
                     }
                 }
-            }
-            
-            if (false) {
-                for (String s : mDiminutives.keySet())
-                    System.out.println(mDiminutives.get(s) + " " + s);
             }
         } catch (UnsupportedEncodingException e) {
             // Impossible: Java implementations are required to support UTF-8.
