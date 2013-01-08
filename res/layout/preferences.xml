@@ -42,6 +42,17 @@
 	            android:summary="@string/preferences.intelliMatch.greek.summary"
 	            android:key="romanizeGreek" />
 	        <CheckBoxPreference
+	            android:title="@string/preferences.intelliMatch.spanish"
+	            android:defaultValue="false"
+	            android:summary="@string/preferences.intelliMatch.spanish.summary"
+	            android:key="spanishNames" />
+	        <CheckBoxPreference
+	            android:title="@string/preferences.intelliMatch.accents"
+	            android:defaultValue="true"
+	            android:summary="@string/preferences.intelliMatch.accents.summary"
+	            android:enabled="false"
+	            android:key="stripAccents" />
+	        <CheckBoxPreference
 	            android:title="@string/preferences.intelliMatch.first"
 	            android:defaultValue="true"
 	            android:summary="@string/preferences.intelliMatch.first.summary"
@@ -65,12 +76,6 @@
 	            android:summary="@string/preferences.intelliMatch.reverse.summary"
 	            android:enabled="false"
 	            android:key="reverseMatch" />
-	        <CheckBoxPreference
-	            android:title="@string/preferences.intelliMatch.spanish"
-	            android:defaultValue="false"
-	            android:summary="@string/preferences.intelliMatch.spanish.summary"
-	            android:enabled="false"
-	            android:key="spanishNames" />
         </PreferenceScreen>
             
         <CheckBoxPreference

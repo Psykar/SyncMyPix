@@ -35,5 +35,6 @@ public interface SyncMyPixPreferences {
 	public boolean getPhoneOnly();
 	public boolean getConsiderDiminutives();
 	public boolean getRomanizeGreek();
+	public boolean getSpanishNames();
 	public String getSource();
 }

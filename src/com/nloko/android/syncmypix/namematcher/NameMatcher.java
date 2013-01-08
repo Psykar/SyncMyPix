@@ -38,6 +38,7 @@ import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -140,6 +141,15 @@ public class NameMatcher {
             if (mLastNames.get(lname) == null)
                 mLastNames.put(lname, new ArrayList<PhoneContact>(3));
             mLastNames.get(lname).add(contact);
+            
+            // If spanish names enabled, guess that "middle" name is last name too
+            // (until we do proper fetching of first/last name, which'll be a mess anyway)
+            if (prefs.getSpanishNames() && components.length >= 3) {
+            	String lname2 = components[components.length - 2];
+            	if (mLastNames.get(lname2) == null)
+                    mLastNames.put(lname2, new ArrayList<PhoneContact>(3));
+                mLastNames.get(lname2).add(contact);
+            }
             
             // See below for a description of sentinels and diminutives.
             Object sentinel = mDiminutives.get(fname);
@@ -278,7 +288,7 @@ public class NameMatcher {
     		return null;
     	}
     	
-        StringBuffer newName = new StringBuffer(name.toLowerCase().trim());
+        StringBuffer newName = new StringBuffer(name.toLowerCase(Locale.getDefault()).trim());
         
         int bracket = 0;
         int newNameLength = newName.length();
@@ -412,6 +422,12 @@ public class NameMatcher {
                     		components[components.length - 1].startsWith(lname)) {
                         if (Log.debug) Log.d(TAG, "matched " + name + " to " + possibility.name);
                         return possibility;
+                    }
+                    else if (prefs.getSpanishNames() && components.length >= 3 && (
+                    		lname.startsWith(components[components.length - 2]) ||
+                    		components[components.length - 2].startsWith(lname)
+                    		)) {
+                    	return possibility;
                     }
                 }
                 if (Log.debug) Log.d(TAG, "all inexact first name matches violated last name constraints");

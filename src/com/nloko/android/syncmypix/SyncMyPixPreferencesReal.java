@@ -89,6 +89,11 @@ public final class SyncMyPixPreferencesReal implements SyncMyPixPreferences {
 	public boolean getRomanizeGreek() {
 		return romanizeGreek;
 	}
+	
+	private final boolean spanishNames;
+	public boolean getSpanishNames() {
+		return spanishNames;
+	}
 
 	public String getSource() {
 		return "Facebook";
@@ -118,6 +123,7 @@ public final class SyncMyPixPreferencesReal implements SyncMyPixPreferences {
     	intelliMatch = prefs.getBoolean("intelliMatch", true);
     	considerDiminutives = prefs.getBoolean("matchDiminutives", true);
     	romanizeGreek = prefs.getBoolean("romanizeGreek", false);
+    	spanishNames = prefs.getBoolean("spanishNames", false);
 	}
 
 }
