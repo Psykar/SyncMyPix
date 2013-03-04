@@ -103,7 +103,7 @@
     
     <string name="facebooklogin">Login to Facebook</string>
     <string name="facebooklogin.urlError">Error parsing URL</string>
-    <string name="facebook_api_key">125985810901022</string>
+    <string name="facebook_api_key">458867177519592</string>
     
     <string name="syncservice.started">SyncMyPix syncing started</string>
     <string name="syncservice.stopped">SyncMyPix finished syncing</string>
