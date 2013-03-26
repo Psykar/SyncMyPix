@@ -20,7 +20,7 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix;
+package com.psykar.android.syncmypix;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,15 +28,15 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.nloko.android.Log;
-import com.nloko.android.PhotoCache;
-import com.nloko.android.Utils;
-import com.nloko.android.syncmypix.SyncMyPix.Results;
-import com.nloko.android.syncmypix.SyncMyPix.Sync;
-import com.nloko.android.syncmypix.SyncMyPixDbHelper.DBHashes;
-import com.nloko.android.syncmypix.contactutils.ContactUtils;
-import com.nloko.android.syncmypix.namematcher.NameMatcher;
-import com.nloko.android.syncmypix.namematcher.NameMatcherFactory;
+import com.psykar.android.Log;
+import com.psykar.android.PhotoCache;
+import com.psykar.android.Utils;
+import com.psykar.android.syncmypix.SyncMyPix.Results;
+import com.psykar.android.syncmypix.SyncMyPix.Sync;
+import com.psykar.android.syncmypix.SyncMyPixDbHelper.DBHashes;
+import com.psykar.android.syncmypix.contactutils.ContactUtils;
+import com.psykar.android.syncmypix.namematcher.NameMatcher;
+import com.psykar.android.syncmypix.namematcher.NameMatcherFactory;
 
 import android.app.AlarmManager;
 import android.app.Notification;

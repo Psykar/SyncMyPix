@@ -20,7 +20,7 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix;
+package com.psykar.android.syncmypix;
 
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
@@ -30,16 +30,16 @@ import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import com.nloko.android.Log;
-import com.nloko.android.PhotoCache;
-import com.nloko.android.ThumbnailCache;
-import com.nloko.android.Utils;
-import com.nloko.android.ThumbnailCache.ImageListener;
-import com.nloko.android.ThumbnailCache.ImageProvider;
-import com.nloko.android.syncmypix.SyncMyPix.Results;
-import com.nloko.android.syncmypix.SyncMyPix.Sync;
-import com.nloko.android.syncmypix.contactutils.ContactUtils;
-import com.nloko.android.syncmypix.graphics.CropImage;
+import com.psykar.android.Log;
+import com.psykar.android.PhotoCache;
+import com.psykar.android.ThumbnailCache;
+import com.psykar.android.Utils;
+import com.psykar.android.ThumbnailCache.ImageListener;
+import com.psykar.android.ThumbnailCache.ImageProvider;
+import com.psykar.android.syncmypix.SyncMyPix.Results;
+import com.psykar.android.syncmypix.SyncMyPix.Sync;
+import com.psykar.android.syncmypix.contactutils.ContactUtils;
+import com.psykar.android.syncmypix.graphics.CropImage;
 
 import android.app.Activity;
 import android.app.Dialog;

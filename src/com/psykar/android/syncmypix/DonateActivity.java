@@ -20,7 +20,7 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix;
+package com.psykar.android.syncmypix;
 
 import java.lang.ref.WeakReference;
 
@@ -34,8 +34,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
-import com.nloko.android.Log;
-import com.nloko.android.syncmypix.R;
+import com.psykar.android.Log;
+import com.psykar.android.syncmypix.R;
 
 public class DonateActivity extends Activity {
 

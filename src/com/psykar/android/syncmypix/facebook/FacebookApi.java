@@ -20,7 +20,7 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix.facebook;
+package com.psykar.android.syncmypix.facebook;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -39,10 +39,10 @@ import android.os.Bundle;
 
 import com.facebook.android.Facebook;
 import com.facebook.android.Util;
-import com.nloko.android.Log;
-import com.nloko.android.syncmypix.SocialNetworkUser;
 
 import com.nloko.simplyfacebook.net.FacebookJSONResponse;
+import com.psykar.android.Log;
+import com.psykar.android.syncmypix.SocialNetworkUser;
 
 public class FacebookApi {
 	

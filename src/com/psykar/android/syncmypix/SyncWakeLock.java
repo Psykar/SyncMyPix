@@ -20,7 +20,7 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix;
+package com.psykar.android.syncmypix;
 
 import android.content.Context;
 import android.os.PowerManager;

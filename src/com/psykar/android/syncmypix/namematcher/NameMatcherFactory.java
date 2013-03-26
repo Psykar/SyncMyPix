@@ -19,11 +19,11 @@
 //    You should have received a copy of the GNU General Public License
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
-package com.nloko.android.syncmypix.namematcher;
+package com.psykar.android.syncmypix.namematcher;
 
 import java.io.InputStream;
 
-import com.nloko.android.syncmypix.SyncMyPixPreferences;
+import com.psykar.android.syncmypix.SyncMyPixPreferences;
 
 import android.content.Context;
 

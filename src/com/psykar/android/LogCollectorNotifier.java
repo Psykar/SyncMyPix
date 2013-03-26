@@ -20,7 +20,7 @@
 //
 
 
-package com.nloko.android;
+package com.psykar.android;
 
 public interface LogCollectorNotifier {
 	void onError();

@@ -20,17 +20,17 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix;
+package com.psykar.android.syncmypix;
 
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
 
-import com.nloko.android.Log;
-import com.nloko.android.Utils;
-import com.nloko.android.syncmypix.SyncMyPix.Contacts;
-import com.nloko.android.syncmypix.SyncMyPix.Results;
-import com.nloko.android.syncmypix.SyncMyPix.Sync;
-import com.nloko.android.syncmypix.contactutils.ContactUtils;
+import com.psykar.android.Log;
+import com.psykar.android.Utils;
+import com.psykar.android.syncmypix.SyncMyPix.Contacts;
+import com.psykar.android.syncmypix.SyncMyPix.Results;
+import com.psykar.android.syncmypix.SyncMyPix.Sync;
+import com.psykar.android.syncmypix.contactutils.ContactUtils;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;

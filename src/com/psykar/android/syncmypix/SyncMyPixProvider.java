@@ -20,14 +20,14 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix;
+package com.psykar.android.syncmypix;
 
 import java.util.HashMap;
 
-import com.nloko.android.Log;
-import com.nloko.android.syncmypix.SyncMyPix.Contacts;
-import com.nloko.android.syncmypix.SyncMyPix.Results;
-import com.nloko.android.syncmypix.SyncMyPix.Sync;
+import com.psykar.android.Log;
+import com.psykar.android.syncmypix.SyncMyPix.Contacts;
+import com.psykar.android.syncmypix.SyncMyPix.Results;
+import com.psykar.android.syncmypix.SyncMyPix.Sync;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;

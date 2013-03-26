@@ -19,7 +19,7 @@
 //  limitations under the License. 
 //
 
-package com.nloko.android;
+package com.psykar.android;
 
 import java.io.BufferedReader;
 import java.io.IOException;

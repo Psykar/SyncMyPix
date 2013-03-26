@@ -20,7 +20,7 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix;
+package com.psykar.android.syncmypix;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
@@ -32,12 +32,12 @@ import com.facebook.android.DialogError;
 import com.facebook.android.Facebook;
 import com.facebook.android.Facebook.DialogListener;
 import com.facebook.android.FacebookError;
-import com.nloko.android.Log;
-import com.nloko.android.LogCollector;
-import com.nloko.android.LogCollectorNotifier;
-import com.nloko.android.Utils;
-import com.nloko.android.syncmypix.views.ConfirmSyncDialog;
-import com.nloko.android.syncmypix.facebook.*;
+import com.psykar.android.Log;
+import com.psykar.android.LogCollector;
+import com.psykar.android.LogCollectorNotifier;
+import com.psykar.android.Utils;
+import com.psykar.android.syncmypix.facebook.*;
+import com.psykar.android.syncmypix.views.ConfirmSyncDialog;
 
 import android.app.Activity;
 import android.app.Dialog;

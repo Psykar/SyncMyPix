@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package com.nloko.android.syncmypix.graphics;
+package com.psykar.android.syncmypix.graphics;
 
-import com.nloko.android.syncmypix.R;
+import com.psykar.android.syncmypix.R;
 
 import android.graphics.Canvas;
 import android.graphics.Matrix;

@@ -20,9 +20,9 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix.contactutils;
+package com.psykar.android.syncmypix.contactutils;
 
-import com.nloko.android.Utils;
+import com.psykar.android.Utils;
 
 public class ContactProxyFactory {
 	public static IContactProxy create() {

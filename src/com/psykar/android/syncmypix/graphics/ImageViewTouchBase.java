@@ -1,4 +1,4 @@
-package com.nloko.android.syncmypix.graphics;
+package com.psykar.android.syncmypix.graphics;
 
 import android.content.Context;
 import android.graphics.Bitmap;

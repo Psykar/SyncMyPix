@@ -19,7 +19,7 @@
 //  limitations under the License. 
 //
 
-package com.nloko.android;
+package com.psykar.android;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -49,7 +49,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 
-import com.nloko.android.Log;
+import com.psykar.android.Log;
 
 public final class Utils {
 

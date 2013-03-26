@@ -21,10 +21,10 @@
 //
 
 
-package com.nloko.android.syncmypix.views;
+package com.psykar.android.syncmypix.views;
 
-import com.nloko.android.syncmypix.SyncMyPixPreferences;
-import com.nloko.android.syncmypix.SyncMyPixPreferencesReal;
+import com.psykar.android.syncmypix.SyncMyPixPreferences;
+import com.psykar.android.syncmypix.SyncMyPixPreferencesReal;
 
 import android.app.AlertDialog;
 import android.content.Context;

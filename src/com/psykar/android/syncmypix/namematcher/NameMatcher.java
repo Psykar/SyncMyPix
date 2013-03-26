@@ -22,7 +22,7 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix.namematcher;
+package com.psykar.android.syncmypix.namematcher;
 
 // Ideas for improving automatic name matching:
 //
@@ -43,10 +43,10 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import com.nloko.android.Log;
-import com.nloko.android.Utils;
-import com.nloko.android.syncmypix.PhoneContact;
-import com.nloko.android.syncmypix.SyncMyPixPreferences;
+import com.psykar.android.Log;
+import com.psykar.android.Utils;
+import com.psykar.android.syncmypix.PhoneContact;
+import com.psykar.android.syncmypix.SyncMyPixPreferences;
 
 import android.content.Context;
 import android.database.Cursor;

@@ -20,7 +20,7 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix.facebook;
+package com.psykar.android.syncmypix.facebook;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
@@ -30,14 +30,14 @@ import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
 import com.facebook.android.Facebook;
-import com.nloko.android.Log;
-import com.nloko.android.syncmypix.MainActivity;
-import com.nloko.android.syncmypix.SyncService;
-import com.nloko.android.syncmypix.SettingsActivity;
-import com.nloko.android.syncmypix.SocialNetworkUser;
-import com.nloko.android.syncmypix.R;
-import com.nloko.android.syncmypix.SyncServiceListener;
 import com.nloko.simplyfacebook.net.FacebookRestClient;
+import com.psykar.android.Log;
+import com.psykar.android.syncmypix.MainActivity;
+import com.psykar.android.syncmypix.R;
+import com.psykar.android.syncmypix.SettingsActivity;
+import com.psykar.android.syncmypix.SocialNetworkUser;
+import com.psykar.android.syncmypix.SyncService;
+import com.psykar.android.syncmypix.SyncServiceListener;
 
 import android.content.Context;
 import android.content.Intent;

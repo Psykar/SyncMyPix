@@ -20,10 +20,10 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix;
+package com.psykar.android.syncmypix;
 
-import com.nloko.android.Log;
-import com.nloko.android.Utils;
+import com.psykar.android.Log;
+import com.psykar.android.Utils;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

@@ -36,7 +36,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.facebook.android.Facebook.DialogListener;
-import com.nloko.android.syncmypix.R;
+import com.psykar.android.syncmypix.R;
 
 public class FbDialog extends Dialog {
 

@@ -20,7 +20,7 @@
 //    along with SyncMyPix.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package com.nloko.android.syncmypix.contactutils;
+package com.psykar.android.syncmypix.contactutils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,8 +28,8 @@ import java.io.OutputStream;
 import java.util.HashMap;
 
 import com.android.providers.contacts.PhotoStore;
-import com.nloko.android.syncmypix.MainActivity;
-import com.nloko.android.syncmypix.PhoneContact;
+import com.psykar.android.syncmypix.MainActivity;
+import com.psykar.android.syncmypix.PhoneContact;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;

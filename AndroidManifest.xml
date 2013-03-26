@@ -67,10 +67,10 @@
                 android:targetActivity=".MainActivity" >
                 
 		</activity-alias>
-        <activity android:name="com.nloko.android.syncmypix.facebook.FacebookLoginWebView"
+        <activity android:name="com.psykar.android.syncmypix.facebook.FacebookLoginWebView"
                   android:label="@string/facebooklogin">
         </activity>
-        <activity android:name="com.nloko.android.syncmypix.graphics.CropImage"
+        <activity android:name="com.psykar.android.syncmypix.graphics.CropImage"
                   android:label="Crop Picture"
                   android:hardwareAccelerated="false">
         </activity>
@@ -83,8 +83,8 @@
         		  android:theme="@android:style/Theme.Light.NoTitleBar"
                   >
         </activity>
-        <service android:name="com.nloko.android.syncmypix.facebook.FacebookSyncService"></service>
-        <provider android:name="com.nloko.android.syncmypix.SyncMyPixProvider"
+        <service android:name="com.psykar.android.syncmypix.facebook.FacebookSyncService"></service>
+        <provider android:name="com.psykar.android.syncmypix.SyncMyPixProvider"
           android:authorities="com.nloko.provider.SyncMyPix">
 		</provider>
     </application>
